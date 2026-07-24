@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story | Evomec Global Services</title>
+<meta name="description" content="Evomec Global Services Limited — an indigenous, 100% Nigerian-owned EPC provider incorporated in 2006, serving NLNG, Seven Energy/ACCUGAS, NAOC, SPDC and NNPC across the energy sector.">
+<link rel="icon" type="image/png" href="brand_assets/evomec-mark.png">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          canvas: '#072A45',
+          surface: '#0A3D62',
+          elevated: '#2F5A7A',
+          hairline: 'rgba(44,110,155,0.28)',
+          'hairline-strong': 'rgba(44,110,155,0.55)',
+          ink: '#F0F4F8',
+          'ink-muted': '#C9D6DF',
+          'ink-faint': '#7E8FA3',
+          primary: '#F0741F',
+          'primary-hover': '#F28941',
+          'primary-pressed': '#D3661B',
+          secondary: '#2C6E9B',
+          tertiary: '#F5A623',
+          success: '#1B998B',
+          warning: '#F5A623',
+          info: '#2C6E9B',
+          error: '#E4433A',
+        },
+        fontFamily: {
+          sans: ['Inter', '-apple-system', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        },
+        borderRadius: {
+          none: '0px',
+          sm: '6px',
+          DEFAULT: '10px',
+          md: '10px',
+          lg: '16px',
+          xl: '24px',
+          full: '999px',
+        },
+        boxShadow: {
+          sm: '0 1px 0 rgba(255,255,255,0.02) inset, 0 1px 2px rgba(0,0,0,0.4)',
+          md: '0 8px 24px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.03) inset',
+          lg: '0 24px 60px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.04) inset',
+          focus: '0 0 0 3px rgba(240,116,31,0.35)',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root{ --ease: cubic-bezier(0.2, 0.6, 0.2, 1); }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Inter', sans-serif; background:#072A45; color:#F0F4F8; letter-spacing:-0.005em; }
+  ::selection{ background:#F0741F; color:#072A45; }
+
+  .container-h{ max-width:1200px; margin-inline:auto; padding-inline:clamp(20px, 4vw, 48px); }
+
+  .text-display{ font-size:clamp(2.75rem, 6vw, 4.5rem); font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+  .text-headline-lg{ font-size:2.25rem; font-weight:600; letter-spacing:-0.02em; line-height:1.12; }
+  .text-headline-md{ font-size:1.5rem; font-weight:600; letter-spacing:-0.015em; line-height:1.2; }
+  .text-title-md{ font-size:1.125rem; font-weight:600; letter-spacing:-0.01em; line-height:1.3; }
+  .text-body-md{ font-size:0.875rem; font-weight:400; letter-spacing:-0.005em; line-height:1.55; }
+  .text-body-sm{ font-size:0.875rem; font-weight:400; line-height:1.5; }
+  .text-label-sm{ font-size:0.75rem; font-weight:500; letter-spacing:0.08em; line-height:1.2; text-transform:uppercase; }
+  .text-mono-sm{ font-family:'JetBrains Mono', monospace; font-size:0.8125rem; font-weight:500; line-height:1.4; }
+  .text-metric{ font-family:'JetBrains Mono', monospace; font-size:2.5rem; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+
+  .hairline-grid{ background-image:
+      linear-gradient(rgba(44,110,155,0.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44,110,155,0.10) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+  }
+  .grain{ position:absolute; inset:0; pointer-events:none; opacity:.025; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  .about-hero-slide{ position:absolute; inset:0; opacity:0; transition:opacity 1.4s var(--ease); }
+  .about-hero-slide.is-active{ opacity:1; }
+  .about-hero-slide img{ width:100%; height:100%; object-fit:cover; object-position:center 20%; filter:saturate(0.85); }
+
+  /* Buttons */
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; height:40px; padding:0 18px;
+    border-radius:10px; font-size:0.8125rem; font-weight:500; white-space:nowrap;
+    transition:background-color .15s var(--ease), border-color .15s var(--ease), color .15s var(--ease), transform .15s var(--ease); }
+  .btn:active{ transform:scale(.97); }
+  .btn:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(240,116,31,0.35); }
+  .btn-lg{ height:48px; padding:0 22px; font-size:0.9375rem; }
+  .btn-sm{ height:32px; padding:0 14px; font-size:0.75rem; }
+  .btn-primary{ background:#F0741F; color:#fff; box-shadow:0 1px 0 rgba(255,255,255,.15) inset; }
+  .btn-primary:hover{ background:#F28941; }
+  .btn-primary:active{ background:#D3661B; }
+  .btn-secondary{ background:#0A3D62; color:#F0F4F8; border:1px solid rgba(44,110,155,0.55); }
+  .btn-secondary:hover{ background:#2F5A7A; border-color:rgba(44,110,155,0.8); }
+  .btn-tertiary{ background:transparent; color:#C9D6DF; }
+  .btn-tertiary:hover{ background:rgba(44,110,155,0.14); color:#F0F4F8; }
+
+  /* Cards */
+  .card{ background:#0A3D62; border:1px solid rgba(44,110,155,0.28); border-radius:16px; padding:24px;
+    transition:background-color .24s var(--ease), border-color .24s var(--ease), transform .24s var(--ease); }
+  .card-elevated{ background:#2F5A7A; border:1px solid rgba(44,110,155,0.55); border-radius:16px; padding:24px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.03) inset; }
+  .card-accent{ position:relative; border-top:2px solid var(--accent, #F0741F); }
+
+  /* Chips */
+  .chip{ display:inline-flex; align-items:center; gap:6px; height:24px; padding:0 10px; border-radius:999px;
+    font-family:'JetBrains Mono', monospace; font-size:0.75rem; font-weight:500; }
+  .chip-primary{ background:rgba(240,116,31,0.14); color:#F5924A; }
+  .chip-secondary{ background:rgba(44,110,155,0.18); color:#7CB3DA; }
+  .chip-tertiary{ background:rgba(245,166,35,0.14); color:#F5C15C; }
+  .chip-success{ background:rgba(27,153,139,0.16); color:#4FCDBB; }
+
+  /* Stat tile */
+  .stat-tile{ background:#0A3D62; border:1px solid rgba(44,110,155,0.28); border-radius:16px; padding:20px; position:relative; overflow:hidden; }
+  .stat-tile::before{ content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--accent, #F0741F); }
+
+  /* Nav */
+  #site-header{ background:rgba(7,42,69,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(44,110,155,0.28); }
+  .nav-link{ color:#C9D6DF; transition:color .15s var(--ease); font-size:0.8125rem; }
+  .nav-link:hover{ color:#F0F4F8; }
+  .nav-link.current{ color:#F0F4F8; }
+
+  /* Reveal */
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .45s var(--ease), transform .45s var(--ease); }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  .reveal-stagger > *{ opacity:0; transform:translateY(14px); transition:opacity .4s var(--ease), transform .4s var(--ease); }
+  .reveal-stagger.is-visible > *{ opacity:1; transform:translateY(0); }
+  .reveal-stagger.is-visible > *:nth-child(1){ transition-delay:0ms; }
+  .reveal-stagger.is-visible > *:nth-child(2){ transition-delay:80ms; }
+  .reveal-stagger.is-visible > *:nth-child(3){ transition-delay:160ms; }
+
+  .icon-tile{ width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:rgba(44,110,155,0.14); color:#F0F4F8; }
+
+  /* Video slot */
+  .video-slot{ position:relative; aspect-ratio:16/9; border-radius:16px; overflow:hidden; border:1px solid rgba(44,110,155,0.28); background:#0A3D62; }
+  .video-slot .play-btn{ width:64px; height:64px; border-radius:999px; background:#F0741F; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,0.45); transition:background-color .15s var(--ease), transform .15s var(--ease); }
+  .video-slot:hover .play-btn{ background:#F28941; transform:scale(1.06); }
+
+  [data-lucide]{ stroke-width:1.75; }
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- ============ HEADER ============ -->
+<header id="site-header" class="fixed top-0 inset-x-0 z-50">
+  <div class="container-h flex items-center justify-between" style="height:64px;">
+    <a href="index.html" class="flex items-center gap-2.5">
+      <img src="brand_assets/evomec-mark.png" alt="Evomec" class="w-10 h-10 object-contain">
+      <span class="leading-none">
+        <span class="block font-semibold text-[15px] tracking-tight text-ink">EVOMEC</span>
+        <span class="block text-label-sm text-secondary" style="font-size:9px; letter-spacing:.18em;">GLOBAL SERVICES</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-7">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="our-story.html" class="nav-link current">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="hse.html" class="nav-link">HSE</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <button class="hidden md:inline-flex w-9 h-9 rounded-md items-center justify-center text-ink-muted hover:text-ink hover:bg-elevated transition-colors duration-150" aria-label="Search">
+        <i data-lucide="search" class="w-4 h-4"></i>
+      </button>
+      <a href="index.html#contact" class="hidden sm:inline-flex btn btn-primary">Get in touch</a>
+      <button id="menu-toggle" class="lg:hidden w-9 h-9 rounded-md flex items-center justify-center text-ink hover:bg-elevated transition-colors duration-150" aria-label="Open menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="lg:hidden hidden bg-canvas border-t border-hairline">
+    <nav class="flex flex-col px-5 py-3">
+      <a href="index.html" class="py-3 text-body-md text-ink border-b border-hairline">Home</a>
+      <a href="our-story.html" class="py-3 text-body-md text-ink border-b border-hairline">About</a>
+      <a href="services.html" class="py-3 text-body-md text-ink border-b border-hairline">Services</a>
+      <a href="projects.html" class="py-3 text-body-md text-ink border-b border-hairline">Projects</a>
+      <a href="hse.html" class="py-3 text-body-md text-ink border-b border-hairline">HSE</a>
+      <a href="careers.html" class="py-3 text-body-md text-ink border-b border-hairline">Careers</a>
+      <a href="index.html#contact" class="py-3 text-body-md text-primary font-medium">Get in touch →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ PAGE HEADER ============ -->
+<section class="relative overflow-hidden" style="padding-top:calc(64px + 64px);">
+  <div id="about-hero-track" class="absolute inset-0"></div>
+  <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(7,42,69,0.55) 0%, rgba(7,42,69,0.65) 60%, #072A45 100%);"></div>
+  <div class="absolute inset-0" style="background:linear-gradient(90deg, rgba(7,42,69,0.35) 0%, rgba(7,42,69,0.08) 55%, transparent 90%);"></div>
+  <div class="absolute inset-0 hairline-grid"></div>
+  <div class="grain"></div>
+  <div class="container-h relative pb-16">
+    <a href="index.html#about" class="inline-flex items-center gap-1.5 text-mono-sm text-ink-muted hover:text-ink transition-colors duration-150 mb-6 reveal">
+      <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Evomec.com
+    </a>
+    <p class="text-label-sm text-primary mb-4 reveal">Our Organisation</p>
+    <h1 class="text-headline-lg md:text-display text-ink max-w-3xl reveal" style="transition-delay:60ms">Building a safer, more resilient energy sector.</h1>
+    <p class="text-body-md text-ink-muted max-w-2xl mt-6 reveal" style="transition-delay:120ms; font-size:16px;">
+      An indigenous, 100% Nigerian-owned EPC provider delivering premium engineering, procurement, construction and commissioning services to the energy, oil &amp; gas industries since 2006.
+    </p>
+
+    <div class="grid sm:grid-cols-3 gap-4 mt-12 reveal-stagger">
+      <div class="stat-tile" style="--accent:#F0741F">
+        <p class="text-label-sm text-ink-faint mb-3">Incorporated</p>
+        <span class="text-metric text-ink block">2006</span>
+        <p class="text-body-sm text-ink-muted mt-2">Registered under the Corporate Affairs Commission</p>
+      </div>
+      <div class="stat-tile" style="--accent:#2C6E9B">
+        <p class="text-label-sm text-ink-faint mb-3">Ownership</p>
+        <span class="text-metric text-ink block">100%</span>
+        <p class="text-body-sm text-ink-muted mt-2">Nigerian shareholding, fully indigenous</p>
+      </div>
+      <div class="stat-tile" style="--accent:#F5A623">
+        <p class="text-label-sm text-ink-faint mb-3">Certified</p>
+        <span class="text-metric text-ink block" style="font-size:1.9rem;">ISO</span>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="chip chip-success">9001:2015</span>
+          <span class="chip chip-success">14001:2015</span>
+          <span class="chip chip-success">45001:2018</span>
+          <span class="chip chip-success">IEC 17025:2017</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPANY PROFILE ============ -->
+<section class="container-h py-16 md:py-20 border-t border-hairline grid lg:grid-cols-12 gap-10">
+  <div class="lg:col-span-7 space-y-5 reveal">
+    <p class="text-body-md text-ink-muted">
+      EVOMEC GLOBAL SERVICES LIMITED is an indigenous company incorporated in November 2006 with a hundred percent (100%) Nigerian shareholding, under the Corporate Affairs Commission as a limited liability company.
+    </p>
+    <p class="text-body-md text-ink-muted">
+      Evomec is actively engaged in diverse sectors of Nigerian and international markets.
+    </p>
+    <p class="text-body-md text-ink-muted">
+      Evomec is an emerging indigenous EPC provider for major industry players in Sub-Saharan Africa, including the Nigeria Liquefied Natural Gas Company (NLNG), Seven Energy Group &amp; ACCUGAS Nigeria Limited, Nigeria Agip Oil Company (NAOC), Shell Petroleum Development Company (SPDC), and the Nigerian National Petroleum Corporation (NNPC), among others.
+    </p>
+    <p class="text-body-md text-ink-muted">
+      The company is a provider of premium Engineering, Procurement, Construction and Commissioning services to the energy, oil &amp; gas industries. We pride ourselves on the provision of the best, fit-for-purpose professionals to deliver excellent and cost-effective solutions to our clients.
+    </p>
+    <p class="text-body-md text-ink-muted">
+      We use the best available resources combined with stringent supervision that assures safety without compromising on quality.
+    </p>
+    <p class="text-body-md text-ink-muted">
+      Evomec is certified to ISO 9001:2015 IQNet Quality Management System (QMS) and ISO 45001:2018 Occupational Health and Safety (OH&amp;S) by DQS.
+    </p>
+  </div>
+
+  <div class="lg:col-span-4 lg:col-start-9 reveal" style="transition-delay:80ms">
+    <div class="card-elevated sticky" style="top:88px;">
+      <h3 class="text-title-md text-ink mb-5">Quick facts</h3>
+      <dl class="space-y-4 text-body-sm">
+        <div class="flex justify-between gap-4 border-b border-hairline pb-4">
+          <dt class="text-ink-faint">Incorporated</dt>
+          <dd class="text-ink text-right">November 2006</dd>
+        </div>
+        <div class="flex justify-between gap-4 border-b border-hairline pb-4">
+          <dt class="text-ink-faint">Structure</dt>
+          <dd class="text-ink text-right">Limited liability company (CAC)</dd>
+        </div>
+        <div class="flex justify-between gap-4 border-b border-hairline pb-4">
+          <dt class="text-ink-faint">Ownership</dt>
+          <dd class="text-ink text-right">100% Nigerian</dd>
+        </div>
+        <div class="flex justify-between gap-4">
+          <dt class="text-ink-faint">Certifications</dt>
+          <dd class="text-ink text-right">ISO 9001:2015<br>ISO 45001:2018</dd>
+        </div>
+      </dl>
+      <h4 class="text-label-sm text-ink-faint mt-6 mb-3">Key clients</h4>
+      <div class="flex flex-wrap gap-2">
+        <span class="chip chip-secondary">NLNG</span>
+        <span class="chip chip-secondary">Seven Energy / ACCUGAS</span>
+        <span class="chip chip-secondary">NAOC</span>
+        <span class="chip chip-secondary">SPDC</span>
+        <span class="chip chip-secondary">NNPC</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEOS ============ -->
+<section id="videos" class="container-h py-16 md:py-20 border-t border-hairline">
+  <p class="text-label-sm text-secondary mb-3 reveal">Watch</p>
+  <h2 class="text-headline-lg text-ink mb-4 reveal" style="transition-delay:60ms">Our story, on film</h2>
+  <p class="text-body-md text-ink-muted max-w-xl mb-10 reveal" style="transition-delay:100ms">A short introduction and a full, in-depth look at Evomec &mdash; our people, our projects and our capabilities.</p>
+
+  <div class="grid md:grid-cols-2 gap-6 reveal-stagger">
+    <div>
+      <div class="video-slot">
+        <video controls preload="metadata" poster="video/poster-0603.jpg" class="absolute inset-0 w-full h-full object-cover">
+          <source src="video/0603.MP4" type="video/mp4">
+        </video>
+        <span class="chip chip-secondary absolute top-4 right-4 pointer-events-none"><i data-lucide="clock" class="w-3 h-3"></i>4:23</span>
+      </div>
+      <h3 class="text-title-md text-ink mt-4 mb-1">Company Overview</h3>
+      <p class="text-body-sm text-ink-muted">A quick introduction to Evomec Global Services.</p>
+    </div>
+
+    <div>
+      <div class="video-slot">
+        <video controls preload="metadata" poster="video/poster-0628.jpg" class="absolute inset-0 w-full h-full object-cover">
+          <source src="video/0628.MP4" type="video/mp4">
+        </video>
+        <span class="chip chip-tertiary absolute top-4 right-4 pointer-events-none"><i data-lucide="clock" class="w-3 h-3"></i>31:53</span>
+      </div>
+      <h3 class="text-title-md text-ink mt-4 mb-1">Full Company Profile</h3>
+      <p class="text-body-sm text-ink-muted">An in-depth look at our capabilities, projects and people.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="border-t border-hairline">
+  <div class="container-h py-16 md:py-20">
+    <div class="card-elevated flex flex-col md:flex-row items-start md:items-center justify-between gap-8 reveal" style="padding:40px;">
+      <div>
+        <p class="text-label-sm text-tertiary mb-3">Let&rsquo;s talk</p>
+        <h2 class="text-headline-lg text-ink max-w-lg">Ready to bring EPC certainty to your next project?</h2>
+      </div>
+      <a href="index.html#contact" class="btn btn-primary btn-lg shrink-0">Get in touch <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-hairline">
+  <div class="container-h pt-16 pb-8">
+    <div class="grid md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 pb-12 border-b border-hairline">
+      <div>
+        <div class="flex items-center gap-2.5 mb-5">
+          <img src="brand_assets/evomec-mark.png" alt="Evomec" class="w-8 h-8 object-contain">
+          <span class="font-semibold text-[15px] text-ink tracking-tight">EVOMEC</span>
+        </div>
+        <p class="text-body-sm text-ink-muted max-w-xs mb-5">Engineering certainty for a safer energy future through integrated EPC and geosolutions across Sub-Saharan Africa.</p>
+        <div class="flex gap-2">
+          <span class="chip chip-success">ISO 9001:2015</span>
+          <span class="chip chip-success">ISO 14001:2015</span>
+          <span class="chip chip-success">ISO 45001:2018</span>
+          <span class="chip chip-success">ISO/IEC 17025:2017</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-label-sm text-ink-faint mb-4">Our Services</h4>
+        <ul class="space-y-2.5 text-body-sm">
+          <li><a href="services.html#civil-works" class="text-ink-muted hover:text-ink transition-colors duration-150">Civil Works</a></li>
+          <li><a href="services.html#mechanical-works" class="text-ink-muted hover:text-ink transition-colors duration-150">Mechanical Works</a></li>
+          <li><a href="services.html#equipment-leasing" class="text-ink-muted hover:text-ink transition-colors duration-150">Equipment Leasing</a></li>
+          <li><a href="services.html#jetty-pipeline" class="text-ink-muted hover:text-ink transition-colors duration-150">Jetty &amp; Pipeline Construction</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-label-sm text-ink-faint mb-4">Company</h4>
+        <ul class="space-y-2.5 text-body-sm">
+          <li><a href="our-story.html" class="text-ink-muted hover:text-ink transition-colors duration-150">About Us</a></li>
+          <li><a href="projects.html" class="text-ink-muted hover:text-ink transition-colors duration-150">Our Projects</a></li>
+          <li><a href="hse.html" class="text-ink-muted hover:text-ink transition-colors duration-150">HSE &amp; Quality</a></li>
+          <li><a href="careers.html" class="text-ink-muted hover:text-ink transition-colors duration-150">Careers</a></li>
+          <li><a href="index.html#contact" class="text-ink-muted hover:text-ink transition-colors duration-150">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-label-sm text-ink-faint mb-4">Connect</h4>
+        <p class="text-label-sm text-ink-faint mb-1">Head Office</p>
+        <p class="text-body-sm text-ink-muted mb-4">#6 Amaji Street, off Tombia Street, GRA Phase II, Port Harcourt, Rivers State</p>
+        <p class="text-label-sm text-ink-faint mb-1">Direct</p>
+        <p class="text-body-sm text-ink-muted">+234 916 505 2000</p>
+        <p class="text-body-sm text-ink-muted">+233 241 245 992</p>
+        <p class="text-body-sm text-ink-muted">+233 545 399 264</p>
+        <p class="text-body-sm text-ink-muted mb-4">info@evomeclimited.com</p>
+        <a href="https://www.linkedin.com/company/evomec-global-services-ltd/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 h-9 px-3 rounded-md border border-hairline-strong text-ink-muted hover:text-ink hover:bg-elevated transition-colors duration-150" aria-label="Evomec on LinkedIn">
+          <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          <span class="text-body-sm">LinkedIn</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-body-sm text-ink-faint">
+      <p>&copy; 2026 Evomec Global Services. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="index.html#contact" class="hover:text-ink-muted transition-colors duration-150">Privacy Policy</a>
+        <a href="index.html#contact" class="hover:text-ink-muted transition-colors duration-150">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => io.observe(el));
+
+  // Hero background slideshow
+  (function initAboutHero() {
+    const track = document.getElementById('about-hero-track');
+    if (!track) return;
+    const images = [
+      'brand_assets/nog-energy-week/DSC05854.jpg',
+      'brand_assets/nog-energy-week/DSC05877.jpg',
+      'brand_assets/nog-energy-week/DSC05908.jpg',
+      'brand_assets/nog-energy-week/DSC05925.jpg',
+      'brand_assets/nog-energy-week/DSC05978.jpg',
+      'brand_assets/nog-energy-week/DSC06025.jpg',
+      'brand_assets/site-photos/IMG_4170.jpg',
+      'brand_assets/site-photos/IMG_4185.JPG',
+      'brand_assets/site-photos/IMG_4186.JPG',
+      'brand_assets/site-photos/IMG_4187.JPG',
+      'brand_assets/site-photos/IMG_4188.JPG',
+    ];
+    images.forEach((src, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'about-hero-slide' + (i === 0 ? ' is-active' : '');
+      slide.innerHTML = `<img src="${src}" alt="Evomec Global Services in the field">`;
+      track.appendChild(slide);
+    });
+    const slides = track.querySelectorAll('.about-hero-slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('is-active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('is-active');
+    }, 5000);
+  })();
+</script>
+
+</body>
+</html>

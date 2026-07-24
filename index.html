@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evomec Global Services | Engineering, EPC &amp; Energy Solutions</title>
+<meta name="description" content="Evomec Global Services delivers integrated EPC, engineering and field execution for energy operators across offshore, onshore and industrial infrastructure.">
+<link rel="icon" type="image/png" href="brand_assets/evomec-mark.png">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          canvas: '#072A45',
+          surface: '#0A3D62',
+          elevated: '#2F5A7A',
+          hairline: 'rgba(44,110,155,0.28)',
+          'hairline-strong': 'rgba(44,110,155,0.55)',
+          ink: '#F0F4F8',
+          'ink-muted': '#C9D6DF',
+          'ink-faint': '#7E8FA3',
+          primary: '#F0741F',
+          'primary-hover': '#F28941',
+          'primary-pressed': '#D3661B',
+          secondary: '#2C6E9B',
+          tertiary: '#F5A623',
+          success: '#1B998B',
+          warning: '#F5A623',
+          info: '#2C6E9B',
+          error: '#E4433A',
+        },
+        fontFamily: {
+          sans: ['Inter', '-apple-system', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        },
+        borderRadius: {
+          none: '0px',
+          sm: '6px',
+          DEFAULT: '10px',
+          md: '10px',
+          lg: '16px',
+          xl: '24px',
+          full: '999px',
+        },
+        boxShadow: {
+          sm: '0 1px 0 rgba(255,255,255,0.02) inset, 0 1px 2px rgba(0,0,0,0.4)',
+          md: '0 8px 24px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.03) inset',
+          lg: '0 24px 60px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.04) inset',
+          focus: '0 0 0 3px rgba(240,116,31,0.35)',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root{ --ease: cubic-bezier(0.2, 0.6, 0.2, 1); }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Inter', sans-serif; background:#072A45; color:#F0F4F8; letter-spacing:-0.005em; }
+  ::selection{ background:#F0741F; color:#072A45; }
+
+  .container-h{ max-width:1200px; margin-inline:auto; padding-inline:clamp(20px, 4vw, 48px); }
+
+  .text-display{ font-size:clamp(2.75rem, 6vw, 4.5rem); font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+  .text-headline-lg{ font-size:2.25rem; font-weight:600; letter-spacing:-0.02em; line-height:1.12; }
+  .text-headline-md{ font-size:1.5rem; font-weight:600; letter-spacing:-0.015em; line-height:1.2; }
+  .text-title-md{ font-size:1.125rem; font-weight:600; letter-spacing:-0.01em; line-height:1.3; }
+  .text-body-md{ font-size:0.875rem; font-weight:400; letter-spacing:-0.005em; line-height:1.55; }
+  .text-body-sm{ font-size:0.875rem; font-weight:400; line-height:1.5; }
+  .text-label-sm{ font-size:0.75rem; font-weight:500; letter-spacing:0.08em; line-height:1.2; text-transform:uppercase; }
+  .text-mono-sm{ font-family:'JetBrains Mono', monospace; font-size:0.8125rem; font-weight:500; line-height:1.4; }
+  .text-metric{ font-family:'JetBrains Mono', monospace; font-size:2.5rem; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+
+  .hairline-grid{ background-image:
+      linear-gradient(rgba(44,110,155,0.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44,110,155,0.10) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+  }
+  .grain{ position:absolute; inset:0; pointer-events:none; opacity:.025; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  /* Buttons */
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; height:40px; padding:0 18px;
+    border-radius:10px; font-size:0.8125rem; font-weight:500; white-space:nowrap;
+    transition:background-color .15s var(--ease), border-color .15s var(--ease), color .15s var(--ease), transform .15s var(--ease); }
+  .btn:active{ transform:scale(.97); }
+  .btn:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(240,116,31,0.35); }
+  .btn-lg{ height:48px; padding:0 22px; font-size:0.9375rem; }
+  .btn-sm{ height:32px; padding:0 14px; font-size:0.75rem; }
+  .btn-primary{ background:#F0741F; color:#fff; box-shadow:0 1px 0 rgba(255,255,255,.15) inset; }
+  .btn-primary:hover{ background:#F28941; }
+  .btn-primary:active{ background:#D3661B; }
+  .btn-secondary{ background:#0A3D62; color:#F0F4F8; border:1px solid rgba(44,110,155,0.55); }
+  .btn-secondary:hover{ background:#2F5A7A; border-color:rgba(44,110,155,0.8); }
+  .btn-tertiary{ background:transparent; color:#C9D6DF; }
+  .btn-tertiary:hover{ background:rgba(44,110,155,0.14); color:#F0F4F8; }
+
+  /* Inputs */
+  .field-label{ display:block; font-size:0.75rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:#C9D6DF; margin-bottom:8px; }
+  .input-field{ width:100%; height:40px; padding:0 14px; border-radius:10px; background:#0A3D62; color:#F0F4F8;
+    border:1px solid rgba(44,110,155,0.28); transition:border-color .15s var(--ease), box-shadow .15s var(--ease); }
+  .input-field::placeholder{ color:#7E8FA3; }
+  .input-field:focus{ outline:none; border-color:#F0741F; box-shadow:0 0 0 3px rgba(240,116,31,0.35); }
+  textarea.input-field{ height:auto; padding:12px 14px; resize:none; }
+
+  /* Cards */
+  .card{ background:#0A3D62; border:1px solid rgba(44,110,155,0.28); border-radius:16px; padding:24px;
+    transition:background-color .24s var(--ease), border-color .24s var(--ease), transform .24s var(--ease); }
+  .card-elevated{ background:#2F5A7A; border:1px solid rgba(44,110,155,0.55); border-radius:16px; padding:24px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.03) inset; }
+  .card-accent{ position:relative; border-top:2px solid var(--accent, #F0741F); }
+  .card:hover{ background:#0F4870; border-color:rgba(44,110,155,0.5); }
+
+  /* Chips */
+  .chip{ display:inline-flex; align-items:center; gap:6px; height:24px; padding:0 10px; border-radius:999px;
+    font-family:'JetBrains Mono', monospace; font-size:0.75rem; font-weight:500; }
+  .chip-primary{ background:rgba(240,116,31,0.14); color:#F5924A; }
+  .chip-secondary{ background:rgba(44,110,155,0.18); color:#7CB3DA; }
+  .chip-tertiary{ background:rgba(245,166,35,0.14); color:#F5C15C; }
+  .chip-success{ background:rgba(27,153,139,0.16); color:#4FCDBB; }
+
+  /* Stat tile */
+  .stat-tile{ background:#0A3D62; border:1px solid rgba(44,110,155,0.28); border-radius:16px; padding:20px; position:relative; overflow:hidden; }
+  .stat-tile::before{ content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--accent, #F0741F); }
+
+  /* Tabs / segmented control */
+  .tabs{ display:inline-flex; align-items:center; gap:4px; background:#0A3D62; border:1px solid rgba(44,110,155,0.28); border-radius:999px; padding:4px; }
+  .tab{ display:inline-flex; align-items:center; height:32px; padding:0 14px; border-radius:999px; font-size:0.8125rem; color:#C9D6DF;
+    border:1px solid transparent; white-space:nowrap; transition:background-color .15s var(--ease), color .15s var(--ease), border-color .15s var(--ease); }
+  .tab:hover{ color:#F0F4F8; }
+  .tab.active{ background:#2F5A7A; color:#F0F4F8; border-color:#F0741F; }
+  @media (max-width: 767px){
+    .tabs-scroll{ -webkit-mask-image:linear-gradient(to right, black calc(100% - 32px), transparent 100%); mask-image:linear-gradient(to right, black calc(100% - 32px), transparent 100%); }
+  }
+
+  /* Nav */
+  #site-header{ background:rgba(7,42,69,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(44,110,155,0.28); }
+  .nav-link{ color:#C9D6DF; transition:color .15s var(--ease); font-size:0.8125rem; }
+  .nav-link:hover{ color:#F0F4F8; }
+
+  /* Reveal */
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .45s var(--ease), transform .45s var(--ease); }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  .reveal-stagger > *{ opacity:0; transform:translateY(14px); transition:opacity .4s var(--ease), transform .4s var(--ease); }
+  .reveal-stagger.is-visible > *{ opacity:1; transform:translateY(0); }
+  .reveal-stagger.is-visible > *:nth-child(1){ transition-delay:0ms; }
+  .reveal-stagger.is-visible > *:nth-child(2){ transition-delay:60ms; }
+  .reveal-stagger.is-visible > *:nth-child(3){ transition-delay:120ms; }
+  .reveal-stagger.is-visible > *:nth-child(4){ transition-delay:180ms; }
+
+  .icon-tile{ width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:rgba(44,110,155,0.14); color:#F0F4F8; }
+  .icon-tile-lg{ width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; background:rgba(240,116,31,0.12); color:#F0741F; }
+
+  .hero-slide{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; opacity:0; transition:opacity .6s var(--ease); }
+  .hero-slide.is-active{ opacity:1; }
+
+  [data-lucide]{ stroke-width:1.75; }
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- ============ HEADER ============ -->
+<header id="site-header" class="fixed top-0 inset-x-0 z-50">
+  <div class="container-h flex items-center justify-between" style="height:64px;">
+    <a href="#top" class="flex items-center gap-2.5">
+      <img src="brand_assets/evomec-mark.png" alt="Evomec" class="w-10 h-10 object-contain">
+      <span class="leading-none">
+        <span class="block font-semibold text-[15px] tracking-tight text-ink">EVOMEC</span>
+        <span class="block text-label-sm text-secondary" style="font-size:9px; letter-spacing:.18em;">GLOBAL SERVICES</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-7">
+      <a href="#top" class="nav-link">Home</a>
+      <a href="our-story.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="hse.html" class="nav-link">HSE</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <button class="hidden md:inline-flex w-9 h-9 rounded-md items-center justify-center text-ink-muted hover:text-ink hover:bg-elevated transition-colors duration-150" aria-label="Search">
+        <i data-lucide="search" class="w-4 h-4"></i>
+      </button>
+      <a href="#contact" class="hidden sm:inline-flex btn btn-primary">Get in touch</a>
+      <button id="menu-toggle" class="lg:hidden w-9 h-9 rounded-md flex items-center justify-center text-ink hover:bg-elevated transition-colors duration-150" aria-label="Open menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="lg:hidden hidden bg-canvas border-t border-hairline">
+    <nav class="flex flex-col px-5 py-3">
+      <a href="#top" class="py-3 text-body-md text-ink border-b border-hairline">Home</a>
+      <a href="our-story.html" class="py-3 text-body-md text-ink border-b border-hairline">About</a>
+      <a href="services.html" class="py-3 text-body-md text-ink border-b border-hairline">Services</a>
+      <a href="projects.html" class="py-3 text-body-md text-ink border-b border-hairline">Projects</a>
+      <a href="hse.html" class="py-3 text-body-md text-ink border-b border-hairline">HSE</a>
+      <a href="careers.html" class="py-3 text-body-md text-ink border-b border-hairline">Careers</a>
+      <a href="#contact" class="py-3 text-body-md text-primary font-medium">Get in touch →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative overflow-hidden" style="padding-top:calc(64px + 96px);">
+  <div class="absolute inset-0 hairline-grid"></div>
+  <img src="brand_assets/evomec-mark.png" alt="" class="absolute -right-[6%] -top-[8%] w-[46%] max-w-[560px] h-auto opacity-[0.07] rotate-[6deg] hidden md:block">
+  <div class="grain"></div>
+
+  <div class="container-h relative pb-20">
+    <div class="reveal lg:grid lg:grid-cols-12 lg:gap-10 lg:items-center">
+      <div class="lg:col-span-6">
+        <p class="text-label-sm text-primary mb-5">Energy &middot; Oil &amp; Gas &middot; EPC</p>
+        <h1 class="text-display text-ink max-w-3xl italic" style="font-size:clamp(1.375rem, 3vw, 2.25rem);">Delivering fresh Impact.</h1>
+        <p class="text-body-md text-ink-muted max-w-xl mt-6" style="font-size:1.125rem;">
+          Evomec Global Services delivers integrated EPC, engineering and field execution for operators across offshore, onshore and industrial infrastructure &mdash; built for uptime, safety and cost certainty.
+        </p>
+        <div class="flex flex-wrap gap-3 mt-8">
+          <a href="#contact" class="btn btn-primary btn-lg">
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            Start a project
+          </a>
+          <a href="our-story.html#videos" class="btn btn-secondary btn-lg">
+            <i data-lucide="play" class="w-4 h-4"></i>
+            Watch our story
+          </a>
+        </div>
+      </div>
+      <div class="hidden lg:block lg:col-span-6 lg:col-start-7">
+        <div id="hero-slider" class="relative rounded-2xl overflow-hidden border border-dashed border-hairline-strong" style="aspect-ratio:4/5; width:90%; margin-left:auto; background:rgba(10,61,98,0.5); box-shadow:0 24px 60px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.04) inset;">
+          <div class="absolute inset-0 hairline-grid opacity-50"></div>
+          <div id="hero-slide-track" class="absolute inset-0"></div>
+          <div class="absolute inset-x-0 bottom-0 flex items-center justify-between p-4" style="background:linear-gradient(to top, rgba(7,42,69,.85) 0%, transparent 100%);">
+            <span id="hero-slide-counter" class="text-mono-sm text-ink-muted">01 / 20</span>
+            <div class="flex gap-2">
+              <button id="hero-prev" type="button" class="w-8 h-8 rounded-full border border-hairline-strong flex items-center justify-center text-ink-muted hover:text-ink hover:bg-elevated transition-colors duration-150" aria-label="Previous photo">
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+              </button>
+              <button id="hero-next" type="button" class="w-8 h-8 rounded-full border border-hairline-strong flex items-center justify-center text-ink-muted hover:text-ink hover:bg-elevated transition-colors duration-150" aria-label="Next photo">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stat strip -->
+    <div class="grid sm:grid-cols-3 gap-4 mt-16 reveal-stagger">
+      <div class="stat-tile" style="--accent:#F0741F">
+        <p class="text-label-sm text-ink-faint mb-3">Safety</p>
+        <div class="flex items-end justify-between">
+          <span class="text-metric text-ink">2.4M</span>
+          <span class="chip chip-success"><i data-lucide="trending-up" class="w-3 h-3"></i>+18%</span>
+        </div>
+        <p class="text-body-sm text-ink-muted mt-2">Safe man-hours, trailing 24mo</p>
+      </div>
+      <div class="stat-tile" style="--accent:#1B998B">
+        <p class="text-label-sm text-ink-faint mb-3">HSE</p>
+        <div class="flex items-end justify-between">
+          <span class="text-metric text-ink">0</span>
+          <span class="chip chip-success"><i data-lucide="minus" class="w-3 h-3"></i>Flat</span>
+        </div>
+        <p class="text-body-sm text-ink-muted mt-2">Lost-time incidents, 24mo</p>
+      </div>
+      <div class="stat-tile" style="--accent:#F5A623">
+        <p class="text-label-sm text-ink-faint mb-3">Compliance</p>
+        <div class="flex items-end justify-between">
+          <span class="text-metric text-ink">100%</span>
+          <span class="chip chip-success"><i data-lucide="check" class="w-3 h-3"></i>Verified</span>
+        </div>
+        <p class="text-body-sm text-ink-muted mt-2">Indigenous Nigerian content</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="container-h py-16 md:py-20 border-t border-hairline">
+  <div class="flex items-end justify-between mb-8 reveal">
+    <h2 class="text-headline-lg text-ink">Our services</h2>
+    <a href="services.html" class="btn btn-tertiary hidden sm:inline-flex">View all services <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+  </div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal-stagger">
+    <a href="services.html#civil-works" class="card card-accent block" style="--accent:#F0741F">
+      <div class="icon-tile mb-5"><i data-lucide="building-2" class="w-4.5 h-4.5"></i></div>
+      <h3 class="text-title-md text-ink mb-2">Civil Works</h3>
+      <p class="text-body-sm text-ink-muted mb-4">Site preparation, foundations, structural concrete and road construction.</p>
+      <span class="text-mono-sm text-primary inline-flex items-center gap-1.5"><i data-lucide="image" class="w-3.5 h-3.5"></i>View gallery</span>
+    </a>
+    <a href="services.html#mechanical-works" class="card card-accent block" style="--accent:#2C6E9B">
+      <div class="icon-tile mb-5"><i data-lucide="cog" class="w-4.5 h-4.5"></i></div>
+      <h3 class="text-title-md text-ink mb-2">Mechanical Works</h3>
+      <p class="text-body-sm text-ink-muted mb-4">Installation, fabrication and plant maintenance across facilities.</p>
+      <span class="text-mono-sm text-primary inline-flex items-center gap-1.5"><i data-lucide="image" class="w-3.5 h-3.5"></i>View gallery</span>
+    </a>
+    <a href="services.html#equipment-leasing" class="card card-accent block" style="--accent:#F5A623">
+      <div class="icon-tile mb-5"><i data-lucide="truck" class="w-4.5 h-4.5"></i></div>
+      <h3 class="text-title-md text-ink mb-2">Equipment Leasing</h3>
+      <p class="text-body-sm text-ink-muted mb-4">Heavy machinery, marine craft and specialized tools for lease.</p>
+      <span class="text-mono-sm text-primary inline-flex items-center gap-1.5"><i data-lucide="image" class="w-3.5 h-3.5"></i>View gallery</span>
+    </a>
+    <a href="services.html#jetty-pipeline" class="card card-accent block" style="--accent:#1B998B">
+      <div class="icon-tile mb-5"><i data-lucide="anchor" class="w-4.5 h-4.5"></i></div>
+      <h3 class="text-title-md text-ink mb-2">Jetty &amp; Pipeline Construction</h3>
+      <p class="text-body-sm text-ink-muted mb-4">Marine construction, pipeline laying and integrity maintenance.</p>
+      <span class="text-mono-sm text-primary inline-flex items-center gap-1.5"><i data-lucide="image" class="w-3.5 h-3.5"></i>View gallery</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ EXPERTISE STAT BAND ============ -->
+<section id="expertise" class="border-t border-hairline">
+  <div class="container-h py-16 md:py-20">
+    <p class="text-label-sm text-tertiary mb-3 reveal">HSE &amp; Quality</p>
+    <h2 class="text-headline-lg text-ink mb-10 reveal">Our expertise, by the numbers</h2>
+    <div class="grid sm:grid-cols-3 gap-4 reveal-stagger">
+      <div class="stat-tile" style="--accent:#F0741F">
+        <p class="text-label-sm text-ink-faint mb-4">Safety</p>
+        <span class="text-metric text-ink block">0<span class="text-title-md align-top ml-1 text-ink-muted">LTI</span></span>
+        <p class="text-body-sm text-ink-muted mt-3">Unwavering commitment across every offshore, onshore and yard operation.</p>
+        <svg class="mt-4 w-full h-8" viewBox="0 0 120 32" fill="none" preserveAspectRatio="none">
+          <polyline points="0,20 20,20 40,20 60,20 80,20 100,20 120,20" stroke="#1B998B" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="stat-tile" style="--accent:#2C6E9B">
+        <p class="text-label-sm text-ink-faint mb-4">Compliance</p>
+        <span class="text-metric text-ink block">100%</span>
+        <p class="text-body-sm text-ink-muted mt-3">Nigerian shareholding &mdash; fully indigenous ownership and operations.</p>
+        <svg class="mt-4 w-full h-8" viewBox="0 0 120 32" fill="none" preserveAspectRatio="none">
+          <polyline points="0,10 20,10 40,10 60,10 80,10 100,10 120,10" stroke="#2C6E9B" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="stat-tile" style="--accent:#F5A623">
+        <p class="text-label-sm text-ink-faint mb-4">Quality</p>
+        <span class="text-metric text-ink block">ISO</span>
+        <p class="text-body-sm text-ink-muted mt-3">Operating under ISO 9001, 14001, 45001 &amp; 17025 standards.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="chip chip-success">9001:2015</span>
+          <span class="chip chip-success">14001:2015</span>
+          <span class="chip chip-success">45001:2018</span>
+          <span class="chip chip-success">IEC 17025:2017</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE ============ -->
+<section class="border-t border-hairline">
+  <div class="container-h py-16 md:py-20 grid lg:grid-cols-2 gap-10 items-center">
+    <div class="reveal rounded-2xl aspect-[4/3] relative overflow-hidden border border-hairline-strong" style="box-shadow:0 24px 60px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.04) inset;">
+      <img src="brand_assets/expertise-heavy-lift.jpg" alt="Heavy lift crane operation, process vessel installation" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(7,42,69,.55) 0%, transparent 45%);"></div>
+    </div>
+    <div class="reveal" style="transition-delay:80ms">
+      <p class="text-label-sm text-secondary mb-3">Our expertise</p>
+      <h2 class="text-headline-lg text-ink mb-5">Integrated EPC delivery for complex environments</h2>
+      <p class="text-body-md text-ink-muted mb-8">
+        We combine multidisciplinary engineering, disciplined procurement, and hands-on field execution &mdash; giving operators a single accountable partner from concept through mechanical completion and start-up.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-6 border-t border-hairline pt-6">
+        <div>
+          <h3 class="text-title-md text-ink mb-1.5">Fixed-price certainty</h3>
+          <p class="text-body-sm text-ink-muted">Rigorous FEED and estimating discipline that protects schedule and budget.</p>
+        </div>
+        <div>
+          <h3 class="text-title-md text-ink mb-1.5">Full-lifecycle support</h3>
+          <p class="text-body-sm text-ink-muted">From concept engineering through operations and maintenance handover.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT / ORGANISATION ============ -->
+<section id="about" class="container-h py-16 md:py-20 border-t border-hairline">
+  <h2 class="text-headline-lg text-ink mb-10 reveal">Our organisation</h2>
+
+  <div class="grid md:grid-cols-2 gap-4 mb-16 reveal-stagger">
+    <div class="card-elevated">
+      <h3 class="text-title-md text-ink mb-2.5">Building a safer, more resilient energy sector</h3>
+      <p class="text-body-sm text-ink-muted mb-5">The work we do every day, from front-end engineering to field execution, is accelerating safer, more efficient energy infrastructure across the region.</p>
+      <a href="our-story.html" class="btn btn-tertiary -ml-3.5">Read more <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+    </div>
+    <div class="card-elevated">
+      <h3 class="text-title-md text-ink mb-2.5">Our team</h3>
+      <p class="text-body-sm text-ink-muted mb-5">Meet the engineers, project managers and field specialists driving innovation, safety and operational excellence.</p>
+      <a href="team.html" class="btn btn-tertiary -ml-3.5">Read more <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+    </div>
+  </div>
+
+  <p class="text-label-sm text-secondary mb-2 reveal">Our foundation</p>
+  <h3 class="text-headline-md text-ink mb-4 reveal">Our core values</h3>
+  <p class="text-body-md text-ink-muted max-w-xl mb-10 reveal">Four unbreakable pillars that guide our engineers in the field and our strategic direction.</p>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal-stagger">
+    <div class="card card-accent" style="--accent:#F0741F">
+      <div class="icon-tile mb-5"><i data-lucide="shield" class="w-4.5 h-4.5"></i></div>
+      <h4 class="text-title-md text-ink mb-2">Technical Integrity</h4>
+      <p class="text-body-sm text-ink-muted">Uncompromising engineering precision and transparent methodology.</p>
+    </div>
+    <div class="card card-accent" style="--accent:#1B998B">
+      <div class="icon-tile mb-5"><i data-lucide="alert-triangle" class="w-4.5 h-4.5"></i></div>
+      <h4 class="text-title-md text-ink mb-2">Safety &amp; HSE</h4>
+      <p class="text-body-sm text-ink-muted">Safety engineered into daily operations, protecting people and assets.</p>
+    </div>
+    <div class="card card-accent" style="--accent:#2C6E9B">
+      <div class="icon-tile mb-5"><i data-lucide="lightbulb" class="w-4.5 h-4.5"></i></div>
+      <h4 class="text-title-md text-ink mb-2">Innovation</h4>
+      <p class="text-body-sm text-ink-muted">Modern engineering tools and digital workflows for complex challenges.</p>
+    </div>
+    <div class="card card-accent" style="--accent:#F5A623">
+      <div class="icon-tile mb-5"><i data-lucide="users" class="w-4.5 h-4.5"></i></div>
+      <h4 class="text-title-md text-ink mb-2">Collaboration</h4>
+      <p class="text-body-sm text-ink-muted">Deep, transparent relationships as a trusted technical partner.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRY PRESENCE ============ -->
+<section class="border-t border-hairline">
+  <div class="container-h py-16 md:py-20 grid lg:grid-cols-2 gap-10 items-center">
+    <div class="reveal order-2 lg:order-1">
+      <p class="text-label-sm text-secondary mb-3">Industry presence</p>
+      <h2 class="text-headline-lg text-ink mb-5">NOG Energy Week 2026</h2>
+      <p class="text-body-md text-ink-muted">From engaging with industry leaders and partners to showcasing Evomec&rsquo;s indigenous capabilities and innovative solutions, every interaction reinforced our commitment to delivering excellence across the entire energy value chain.</p>
+    </div>
+    <div class="reveal order-1 lg:order-2" style="transition-delay:80ms">
+      <div id="industry-slider" class="relative rounded-2xl overflow-hidden border border-hairline-strong aspect-[4/3]" style="background:rgba(10,61,98,0.5); box-shadow:0 24px 60px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.04) inset;">
+        <div class="absolute inset-0 hairline-grid opacity-50"></div>
+        <div id="industry-slide-track" class="absolute inset-0"></div>
+        <div class="absolute inset-x-0 bottom-0 flex items-center justify-between p-4" style="background:linear-gradient(to top, rgba(7,42,69,.85) 0%, transparent 100%);">
+          <span id="industry-slide-counter" class="text-mono-sm text-ink-muted">01 / 08</span>
+          <div class="flex gap-2">
+            <button id="industry-prev" type="button" class="w-8 h-8 rounded-full border border-hairline-strong flex items-center justify-center text-ink-muted hover:text-ink hover:bg-elevated transition-colors duration-150" aria-label="Previous photo">
+              <i data-lucide="chevron-left" class="w-4 h-4"></i>
+            </button>
+            <button id="industry-next" type="button" class="w-8 h-8 rounded-full border border-hairline-strong flex items-center justify-center text-ink-muted hover:text-ink hover:bg-elevated transition-colors duration-150" aria-label="Next photo">
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSIGHTS ============ -->
+<!-- ============ CAREERS CTA ============ -->
+<section id="careers" class="border-t border-hairline">
+  <div class="container-h py-16 md:py-20">
+    <div class="card-elevated flex flex-col md:flex-row items-start md:items-center justify-between gap-8 reveal" style="padding:40px;">
+      <div>
+        <p class="text-label-sm text-tertiary mb-3">Come work with us</p>
+        <h2 class="text-headline-lg text-ink max-w-lg">Help build the infrastructure the energy transition runs on.</h2>
+      </div>
+      <a href="careers.html" class="btn btn-primary btn-lg shrink-0">Careers at Evomec <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="container-h py-16 md:py-20 border-t border-hairline grid lg:grid-cols-2 gap-10">
+  <div class="reveal">
+    <p class="text-label-sm text-secondary mb-3">Get in touch</p>
+    <h2 class="text-headline-lg text-ink mb-5">Let&rsquo;s build something enduring.</h2>
+    <p class="text-body-md text-ink-muted mb-8 max-w-md">Tell us about your project and our team will respond within one business day.</p>
+    <div class="space-y-5">
+      <div class="flex gap-4">
+        <div class="icon-tile shrink-0"><i data-lucide="map-pin" class="w-4.5 h-4.5"></i></div>
+        <div class="space-y-4">
+          <div>
+            <p class="text-label-sm text-ink-faint mb-1">Head Office</p>
+            <p class="text-body-md text-ink">#6 Amaji Street, off Tombia Street, GRA Phase II, Port Harcourt, Rivers State, Nigeria</p>
+          </div>
+          <div>
+            <p class="text-label-sm text-ink-faint mb-1">Equipment Yard</p>
+            <p class="text-body-md text-ink">Off East-West Road, beside Nkpolu Guest House, Nkpolu, Obio/Akpor LGA, Rivers State</p>
+          </div>
+          <div>
+            <p class="text-label-sm text-ink-faint mb-1">Fabrication Yard</p>
+            <p class="text-body-md text-ink">Along East-West Road, behind Mango Filling Station, before Obirikwerre Bridge, Obio/Akpor LGA, Port Harcourt</p>
+          </div>
+          <div>
+            <p class="text-label-sm text-ink-faint mb-1">Fabrication &amp; Equipment Yard</p>
+            <p class="text-body-md text-ink">No. 10 Warri Street, Oviorie, Ethiope East LGA, Delta State</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="icon-tile shrink-0"><i data-lucide="phone" class="w-4.5 h-4.5"></i></div>
+        <div>
+          <p class="text-label-sm text-ink-faint mb-1">Direct</p>
+          <p class="text-body-md text-ink">+234 916 505 2000</p>
+          <p class="text-body-md text-ink">+233 241 245 992</p>
+          <p class="text-body-md text-ink">+233 545 399 264</p>
+          <p class="text-body-md text-ink mt-2">info@evomeclimited.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form id="contact-form" class="card-elevated reveal" style="transition-delay:80ms">
+    <div id="form-success" class="hidden text-center py-8">
+      <div class="icon-tile mx-auto mb-4" style="width:48px;height:48px;background:rgba(27,153,139,.16);color:#4FCDBB;">
+        <i data-lucide="check" class="w-6 h-6"></i>
+      </div>
+      <h3 class="text-title-md text-ink mb-1">Message sent</h3>
+      <p class="text-body-sm text-ink-muted">Our team will be in touch shortly.</p>
+    </div>
+    <div id="form-fields" class="space-y-5">
+      <div>
+        <label class="field-label">Name</label>
+        <input type="text" required class="input-field">
+      </div>
+      <div>
+        <label class="field-label">Email</label>
+        <input type="email" required class="input-field">
+      </div>
+      <div>
+        <label class="field-label">Message</label>
+        <textarea rows="4" required class="input-field"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-full">Send message</button>
+    </div>
+  </form>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-hairline">
+  <div class="container-h pt-16 pb-8">
+    <div class="grid md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 pb-12 border-b border-hairline">
+      <div>
+        <div class="flex items-center gap-2.5 mb-5">
+          <img src="brand_assets/evomec-mark.png" alt="Evomec" class="w-8 h-8 object-contain">
+          <span class="font-semibold text-[15px] text-ink tracking-tight">EVOMEC</span>
+        </div>
+        <p class="text-body-sm text-ink-muted max-w-xs mb-5">Engineering certainty for a safer energy future through integrated EPC and geosolutions across Sub-Saharan Africa.</p>
+        <div class="flex gap-2">
+          <span class="chip chip-success">ISO 9001:2015</span>
+          <span class="chip chip-success">ISO 14001:2015</span>
+          <span class="chip chip-success">ISO 45001:2018</span>
+          <span class="chip chip-success">ISO/IEC 17025:2017</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-label-sm text-ink-faint mb-4">Our Services</h4>
+        <ul class="space-y-2.5 text-body-sm">
+          <li><a href="services.html#civil-works" class="text-ink-muted hover:text-ink transition-colors duration-150">Civil Works</a></li>
+          <li><a href="services.html#mechanical-works" class="text-ink-muted hover:text-ink transition-colors duration-150">Mechanical Works</a></li>
+          <li><a href="services.html#equipment-leasing" class="text-ink-muted hover:text-ink transition-colors duration-150">Equipment Leasing</a></li>
+          <li><a href="services.html#jetty-pipeline" class="text-ink-muted hover:text-ink transition-colors duration-150">Jetty &amp; Pipeline Construction</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-label-sm text-ink-faint mb-4">Company</h4>
+        <ul class="space-y-2.5 text-body-sm">
+          <li><a href="our-story.html" class="text-ink-muted hover:text-ink transition-colors duration-150">About Us</a></li>
+          <li><a href="projects.html" class="text-ink-muted hover:text-ink transition-colors duration-150">Our Projects</a></li>
+          <li><a href="hse.html" class="text-ink-muted hover:text-ink transition-colors duration-150">HSE &amp; Quality</a></li>
+          <li><a href="careers.html" class="text-ink-muted hover:text-ink transition-colors duration-150">Careers</a></li>
+          <li><a href="#contact" class="text-ink-muted hover:text-ink transition-colors duration-150">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-label-sm text-ink-faint mb-4">Connect</h4>
+        <p class="text-label-sm text-ink-faint mb-1">Head Office</p>
+        <p class="text-body-sm text-ink-muted mb-4">#6 Amaji Street, off Tombia Street, GRA Phase II, Port Harcourt, Rivers State</p>
+        <p class="text-label-sm text-ink-faint mb-1">Direct</p>
+        <p class="text-body-sm text-ink-muted">+234 916 505 2000</p>
+        <p class="text-body-sm text-ink-muted">+233 241 245 992</p>
+        <p class="text-body-sm text-ink-muted">+233 545 399 264</p>
+        <p class="text-body-sm text-ink-muted mb-4">info@evomeclimited.com</p>
+        <a href="https://www.linkedin.com/company/evomec-global-services-ltd/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 h-9 px-3 rounded-md border border-hairline-strong text-ink-muted hover:text-ink hover:bg-elevated transition-colors duration-150" aria-label="Evomec on LinkedIn">
+          <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          <span class="text-body-sm">LinkedIn</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-5 py-8 border-b border-hairline">
+      <div>
+        <h4 class="text-title-md text-ink mb-1">Stay updated</h4>
+        <p class="text-body-sm text-ink-muted">Receive our latest insights and project updates directly in your inbox.</p>
+      </div>
+      <form id="newsletter-form" class="flex w-full md:w-auto gap-3">
+        <input type="email" required placeholder="Email address" class="input-field flex-1 md:w-64">
+        <button type="submit" class="btn btn-primary shrink-0">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-body-sm text-ink-faint">
+      <p>&copy; 2026 Evomec Global Services. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="#contact" class="hover:text-ink-muted transition-colors duration-150">Privacy Policy</a>
+        <a href="#contact" class="hover:text-ink-muted transition-colors duration-150">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+
+  // Reusable photo slider (reserved slots, awaiting real photography)
+  function initSlider({ sliderId, trackId, counterId, prevId, nextId, total, label, images }) {
+    const track = document.getElementById(trackId);
+    const slider = document.getElementById(sliderId);
+    if (!track || !slider) return;
+    const count = images && !total ? images.length : total;
+    for (let i = 1; i <= count; i++) {
+      const slide = document.createElement('div');
+      slide.className = 'hero-slide' + (i === 1 ? ' is-active' : '');
+      const img = images && images[i - 1];
+      if (img) {
+        const fit = img.fit || 'cover';
+        const bg = img.bg ? `background:${img.bg};` : '';
+        slide.style.cssText = bg;
+        slide.innerHTML = `<img src="${img.src}" alt="${img.alt || ''}" class="absolute inset-0 w-full h-full object-${fit}" style="${img.pad ? `padding:${img.pad};` : ''}">`;
+      } else {
+        slide.innerHTML = `
+          <div class="icon-tile-lg"><i data-lucide="image" class="w-6 h-6"></i></div>
+          <span class="text-body-sm text-ink-faint">${label} ${String(i).padStart(2, '0')}</span>`;
+      }
+      track.appendChild(slide);
+    }
+    lucide.createIcons();
+    total = count;
+
+    const slides = track.querySelectorAll('.hero-slide');
+    const counter = document.getElementById(counterId);
+    let current = 0;
+
+    function show(idx) {
+      slides[current].classList.remove('is-active');
+      current = (idx + total) % total;
+      slides[current].classList.add('is-active');
+      counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+    }
+
+    document.getElementById(nextId).addEventListener('click', () => show(current + 1));
+    document.getElementById(prevId).addEventListener('click', () => show(current - 1));
+
+    let autoplay = setInterval(() => show(current + 1), 4000);
+    slider.addEventListener('mouseenter', () => clearInterval(autoplay));
+    slider.addEventListener('mouseleave', () => { autoplay = setInterval(() => show(current + 1), 4000); });
+  }
+
+  initSlider({
+    sliderId: 'hero-slider', trackId: 'hero-slide-track', counterId: 'hero-slide-counter', prevId: 'hero-prev', nextId: 'hero-next', total: 20, label: 'Project photo',
+    images: [
+      { src: 'brand_assets/evomec-logo-slide.png', alt: 'Evomec Global Services', fit: 'contain', bg: '#fff', pad: '48px' },
+      { src: 'brand_assets/site-photos/IMG_4170.jpg', alt: 'Evomec field team on site' },
+      { src: 'brand_assets/site-photos/IMG_4185.JPG', alt: 'Evomec field team on site' },
+      { src: 'brand_assets/site-photos/IMG_4186.JPG', alt: 'Evomec field team on site' },
+      { src: 'brand_assets/site-photos/IMG_4187.JPG', alt: 'Evomec field team on site' },
+      { src: 'brand_assets/site-photos/IMG_4188.JPG', alt: 'Evomec field team on site' },
+    ],
+  });
+  initSlider({
+    sliderId: 'industry-slider', trackId: 'industry-slide-track', counterId: 'industry-slide-counter', prevId: 'industry-prev', nextId: 'industry-next',
+    images: [
+      { src: 'brand_assets/nog-energy-week/DSC05854.jpg', alt: 'Evomec at NOG Energy Week 2026' },
+      { src: 'brand_assets/nog-energy-week/DSC05877.jpg', alt: 'Evomec at NOG Energy Week 2026' },
+      { src: 'brand_assets/nog-energy-week/DSC05880.jpg', alt: 'Evomec at NOG Energy Week 2026' },
+      { src: 'brand_assets/nog-energy-week/DSC05908.jpg', alt: 'Evomec at NOG Energy Week 2026' },
+      { src: 'brand_assets/nog-energy-week/DSC05925.jpg', alt: 'Evomec at NOG Energy Week 2026' },
+      { src: 'brand_assets/nog-energy-week/DSC05968.jpg', alt: 'Evomec at NOG Energy Week 2026' },
+      { src: 'brand_assets/nog-energy-week/DSC05978.jpg', alt: 'Evomec at NOG Energy Week 2026' },
+      { src: 'brand_assets/nog-energy-week/DSC06025.jpg', alt: 'Evomec at NOG Energy Week 2026' },
+    ],
+  });
+
+  const header = document.getElementById('site-header');
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => io.observe(el));
+
+  document.getElementById('contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('form-fields').classList.add('hidden');
+    document.getElementById('form-success').classList.remove('hidden');
+  });
+  document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.target.querySelector('button').textContent = 'Subscribed ✓';
+  });
+</script>
+
+</body>
+</html>

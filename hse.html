@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corporate HSE Policy | Evomec Global Services</title>
+<meta name="description" content="Evomec Global Services Limited's Corporate Health, Safety and Environment (HSE) Policy — our commitment to a safe, healthy working environment and environmental protection across all sites.">
+<link rel="icon" type="image/png" href="brand_assets/evomec-mark.png">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          canvas: '#072A45',
+          surface: '#0A3D62',
+          elevated: '#2F5A7A',
+          hairline: 'rgba(44,110,155,0.28)',
+          'hairline-strong': 'rgba(44,110,155,0.55)',
+          ink: '#F0F4F8',
+          'ink-muted': '#C9D6DF',
+          'ink-faint': '#7E8FA3',
+          primary: '#F0741F',
+          'primary-hover': '#F28941',
+          'primary-pressed': '#D3661B',
+          secondary: '#2C6E9B',
+          tertiary: '#F5A623',
+          success: '#1B998B',
+          warning: '#F5A623',
+          info: '#2C6E9B',
+          error: '#E4433A',
+        },
+        fontFamily: {
+          sans: ['Inter', '-apple-system', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        },
+        borderRadius: {
+          none: '0px', sm: '6px', DEFAULT: '10px', md: '10px', lg: '16px', xl: '24px', full: '999px',
+        },
+        boxShadow: {
+          sm: '0 1px 0 rgba(255,255,255,0.02) inset, 0 1px 2px rgba(0,0,0,0.4)',
+          md: '0 8px 24px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.03) inset',
+          lg: '0 24px 60px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.04) inset',
+          focus: '0 0 0 3px rgba(240,116,31,0.35)',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root{ --ease: cubic-bezier(0.2, 0.6, 0.2, 1); }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Inter', sans-serif; background:#072A45; color:#F0F4F8; letter-spacing:-0.005em; }
+  ::selection{ background:#F0741F; color:#072A45; }
+
+  .container-h{ max-width:1200px; margin-inline:auto; padding-inline:clamp(20px, 4vw, 48px); }
+
+  .text-display{ font-size:clamp(2.75rem, 6vw, 4.5rem); font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+  .text-headline-lg{ font-size:2.25rem; font-weight:600; letter-spacing:-0.02em; line-height:1.12; }
+  .text-headline-md{ font-size:1.5rem; font-weight:600; letter-spacing:-0.015em; line-height:1.2; }
+  .text-title-md{ font-size:1.125rem; font-weight:600; letter-spacing:-0.01em; line-height:1.3; }
+  .text-body-md{ font-size:0.875rem; font-weight:400; letter-spacing:-0.005em; line-height:1.55; }
+  .text-body-sm{ font-size:0.875rem; font-weight:400; line-height:1.5; }
+  .text-label-sm{ font-size:0.75rem; font-weight:500; letter-spacing:0.08em; line-height:1.2; text-transform:uppercase; }
+  .text-mono-sm{ font-family:'JetBrains Mono', monospace; font-size:0.8125rem; font-weight:500; line-height:1.4; }
+
+  .hairline-grid{ background-image:
+      linear-gradient(rgba(44,110,155,0.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44,110,155,0.10) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+  }
+  .grain{ position:absolute; inset:0; pointer-events:none; opacity:.025; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  .about-hero-slide{ position:absolute; inset:0; opacity:0; transition:opacity 1.4s var(--ease); }
+  .about-hero-slide.is-active{ opacity:1; }
+  .about-hero-slide img{ width:100%; height:100%; object-fit:cover; object-position:center 20%; filter:saturate(0.85); }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; height:40px; padding:0 18px;
+    border-radius:10px; font-size:0.8125rem; font-weight:500; white-space:nowrap;
+    transition:background-color .15s var(--ease), border-color .15s var(--ease), color .15s var(--ease), transform .15s var(--ease); }
+  .btn:active{ transform:scale(.97); }
+  .btn:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(240,116,31,0.35); }
+  .btn-lg{ height:48px; padding:0 22px; font-size:0.9375rem; }
+  .btn-primary{ background:#F0741F; color:#fff; box-shadow:0 1px 0 rgba(255,255,255,.15) inset; }
+  .btn-primary:hover{ background:#F28941; }
+  .btn-primary:active{ background:#D3661B; }
+  .btn-secondary{ background:#0A3D62; color:#F0F4F8; border:1px solid rgba(44,110,155,0.55); }
+  .btn-secondary:hover{ background:#2F5A7A; border-color:rgba(44,110,155,0.8); }
+
+  .card{ background:#0A3D62; border:1px solid rgba(44,110,155,0.28); border-radius:16px; padding:24px;
+    transition:background-color .24s var(--ease), border-color .24s var(--ease); }
+  .card:hover{ border-color:rgba(44,110,155,0.5); }
+  .card-elevated{ background:#2F5A7A; border:1px solid rgba(44,110,155,0.55); border-radius:16px; padding:24px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.03) inset; }
+  .card-accent{ position:relative; border-top:2px solid var(--accent, #F0741F); }
+
+  .chip{ display:inline-flex; align-items:center; gap:6px; height:24px; padding:0 10px; border-radius:999px;
+    font-family:'JetBrains Mono', monospace; font-size:0.75rem; font-weight:500; }
+  .chip-secondary{ background:rgba(44,110,155,0.18); color:#7CB3DA; }
+  .chip-tertiary{ background:rgba(245,166,35,0.14); color:#F5C15C; }
+  .chip-success{ background:rgba(27,153,139,0.16); color:#4FCDBB; }
+
+  #site-header{ background:rgba(7,42,69,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(44,110,155,0.28); }
+  .nav-link{ color:#C9D6DF; transition:color .15s var(--ease); font-size:0.8125rem; }
+  .nav-link:hover{ color:#F0F4F8; }
+  .nav-link.current{ color:#F0F4F8; }
+
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .45s var(--ease), transform .45s var(--ease); }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  .reveal-stagger > *{ opacity:0; transform:translateY(14px); transition:opacity .4s var(--ease), transform .4s var(--ease); }
+  .reveal-stagger.is-visible > *{ opacity:1; transform:translateY(0); }
+  .reveal-stagger.is-visible > *:nth-child(1){ transition-delay:0ms; }
+  .reveal-stagger.is-visible > *:nth-child(2){ transition-delay:60ms; }
+  .reveal-stagger.is-visible > *:nth-child(3){ transition-delay:120ms; }
+  .reveal-stagger.is-visible > *:nth-child(4){ transition-delay:180ms; }
+  .reveal-stagger.is-visible > *:nth-child(5){ transition-delay:240ms; }
+  .reveal-stagger.is-visible > *:nth-child(6){ transition-delay:300ms; }
+  .reveal-stagger.is-visible > *:nth-child(7){ transition-delay:360ms; }
+
+  .icon-tile{ width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:rgba(44,110,155,0.14); color:#F0F4F8; shrink:0; }
+  .policy-item{ display:flex; gap:14px; align-items:flex-start; }
+  .cert-trigger{ font:inherit; text-align:left; cursor:pointer; display:block; width:100%; }
+  .cert-trigger img{ transition:transform .5s var(--ease); }
+  .cert-trigger:hover img{ transform:scale(1.04); }
+  .cert-trigger:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(240,116,31,0.35); }
+
+  [data-lucide]{ stroke-width:1.75; }
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- ============ HEADER ============ -->
+<header id="site-header" class="fixed top-0 inset-x-0 z-50">
+  <div class="container-h flex items-center justify-between" style="height:64px;">
+    <a href="index.html" class="flex items-center gap-2.5">
+      <img src="brand_assets/evomec-mark.png" alt="Evomec" class="w-10 h-10 object-contain">
+      <span class="leading-none">
+        <span class="block font-semibold text-[15px] tracking-tight text-ink">EVOMEC</span>
+        <span class="block text-label-sm text-secondary" style="font-size:9px; letter-spacing:.18em;">GLOBAL SERVICES</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-7">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="our-story.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="hse.html" class="nav-link current">HSE</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <button class="hidden md:inline-flex w-9 h-9 rounded-md items-center justify-center text-ink-muted hover:text-ink hover:bg-elevated transition-colors duration-150" aria-label="Search">
+        <i data-lucide="search" class="w-4 h-4"></i>
+      </button>
+      <a href="index.html#contact" class="hidden sm:inline-flex btn btn-primary">Get in touch</a>
+      <button id="menu-toggle" class="lg:hidden w-9 h-9 rounded-md flex items-center justify-center text-ink hover:bg-elevated transition-colors duration-150" aria-label="Open menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="lg:hidden hidden bg-canvas border-t border-hairline">
+    <nav class="flex flex-col px-5 py-3">
+      <a href="index.html" class="py-3 text-body-md text-ink border-b border-hairline">Home</a>
+      <a href="our-story.html" class="py-3 text-body-md text-ink border-b border-hairline">About</a>
+      <a href="services.html" class="py-3 text-body-md text-ink border-b border-hairline">Services</a>
+      <a href="projects.html" class="py-3 text-body-md text-ink border-b border-hairline">Projects</a>
+      <a href="hse.html" class="py-3 text-body-md text-primary border-b border-hairline">HSE</a>
+      <a href="careers.html" class="py-3 text-body-md text-ink border-b border-hairline">Careers</a>
+      <a href="index.html#contact" class="py-3 text-body-md text-primary font-medium">Get in touch →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ PAGE HEADER ============ -->
+<section class="relative overflow-hidden" style="padding-top:calc(64px + 64px);">
+  <div id="page-hero-track" class="absolute inset-0"></div>
+  <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(7,42,69,0.55) 0%, rgba(7,42,69,0.65) 60%, #072A45 100%);"></div>
+  <div class="absolute inset-0" style="background:linear-gradient(90deg, rgba(7,42,69,0.35) 0%, rgba(7,42,69,0.08) 55%, transparent 90%);"></div>
+  <div class="absolute inset-0 hairline-grid"></div>
+  <div class="grain"></div>
+  <div class="container-h relative pb-14">
+    <div class="flex items-center gap-2 text-mono-sm text-ink-faint mb-6 reveal">
+      <a href="index.html" class="hover:text-ink-muted transition-colors duration-150">Home</a>
+      <i data-lucide="chevron-right" class="w-3 h-3"></i>
+      <span class="text-ink-muted">HSE</span>
+    </div>
+    <p class="text-label-sm text-primary mb-4 reveal" style="transition-delay:40ms">Health, safety &amp; environment</p>
+    <h1 class="text-headline-lg text-ink max-w-3xl reveal" style="transition-delay:80ms; font-size:clamp(2.25rem, 6.7vw, 6rem); line-height:1.04; letter-spacing:-0.03em;">Corporate HSE Policy</h1>
+    <p class="text-body-md text-ink-muted max-w-2xl mt-6 reveal" style="transition-delay:120ms; font-size:clamp(1rem, 1.6vw, 1.4375rem);">
+      Evomec Global Services Limited (EGSL) is a leader in engineering, procurement and construction of oil and gas pipelines, process facilities, civil works, heavy equipment leasing and maintenance.
+    </p>
+  </div>
+</section>
+
+<!-- ============ COMPLIANCE & CERTIFICATIONS ============ -->
+<section id="certifications" class="container-h py-16 md:py-20 border-t border-hairline">
+  <p class="text-label-sm text-tertiary mb-3 reveal">Certified systems</p>
+  <h2 class="text-headline-lg text-ink mb-4 reveal" style="transition-delay:40ms">Compliance &amp; Certifications</h2>
+  <p class="text-body-md text-ink-muted max-w-2xl mb-10 reveal" style="transition-delay:80ms">
+    Evomec&rsquo;s HSE and quality systems are independently audited and certified. Certificates are available on request.
+  </p>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal-stagger">
+    <button type="button" class="card cert-trigger text-left" style="padding:0; overflow:hidden;"
+      data-src="brand_assets/certifications/iso-9001-2015.jpg" data-title="ISO 9001:2015 — Quality Management System">
+      <div class="relative" style="aspect-ratio:1179/1640; border-bottom:1px solid rgba(44,110,155,0.28); background:#fff;">
+        <img src="brand_assets/certifications/iso-9001-2015.jpg" alt="ISO 9001:2015 certificate" class="absolute inset-0 w-full h-full object-cover object-top">
+      </div>
+      <div class="p-5">
+        <h3 class="text-title-md text-ink mb-1">ISO 9001:2015</h3>
+        <p class="text-body-sm text-ink-muted mb-2">Quality Management System &mdash; DQS</p>
+        <span class="chip chip-success">Valid to 2029-02-22</span>
+      </div>
+    </button>
+
+    <button type="button" class="card cert-trigger text-left" style="padding:0; overflow:hidden;"
+      data-src="brand_assets/certifications/iso-14001-2015.jpg" data-title="ISO 14001:2015 — Environmental Management System">
+      <div class="relative" style="aspect-ratio:1179/1640; border-bottom:1px solid rgba(44,110,155,0.28); background:#fff;">
+        <img src="brand_assets/certifications/iso-14001-2015.jpg" alt="ISO 14001:2015 certificate" class="absolute inset-0 w-full h-full object-cover object-top">
+      </div>
+      <div class="p-5">
+        <h3 class="text-title-md text-ink mb-1">ISO 14001:2015</h3>
+        <p class="text-body-sm text-ink-muted mb-2">Environmental Management System &mdash; DQS</p>
+        <span class="chip chip-success">Valid to 2028-01-30</span>
+      </div>
+    </button>
+
+    <button type="button" class="card cert-trigger text-left" style="padding:0; overflow:hidden;"
+      data-src="brand_assets/certifications/iso-45001-2018.jpg" data-title="ISO 45001:2018 — Occupational Health &amp; Safety Management System">
+      <div class="relative" style="aspect-ratio:1179/1640; border-bottom:1px solid rgba(44,110,155,0.28); background:#fff;">
+        <img src="brand_assets/certifications/iso-45001-2018.jpg" alt="ISO 45001:2018 certificate" class="absolute inset-0 w-full h-full object-cover object-top">
+      </div>
+      <div class="p-5">
+        <h3 class="text-title-md text-ink mb-1">ISO 45001:2018</h3>
+        <p class="text-body-sm text-ink-muted mb-2">Occupational Health &amp; Safety &mdash; IQNet / DQS</p>
+        <span class="chip chip-success">Valid to 2028-11-26</span>
+      </div>
+    </button>
+
+    <button type="button" class="card cert-trigger text-left" style="padding:0; overflow:hidden;"
+      data-src="brand_assets/certifications/iso-iec-17025-2017.jpg" data-title="ISO/IEC 17025:2017 — Laboratory Management System">
+      <div class="relative" style="aspect-ratio:1179/1640; border-bottom:1px solid rgba(44,110,155,0.28); background:#fff;">
+        <img src="brand_assets/certifications/iso-iec-17025-2017.jpg" alt="ISO/IEC 17025:2017 certificate" class="absolute inset-0 w-full h-full object-cover object-top">
+      </div>
+      <div class="p-5">
+        <h3 class="text-title-md text-ink mb-1">ISO/IEC 17025:2017</h3>
+        <p class="text-body-sm text-ink-muted mb-2">Laboratory Management System &mdash; USAC</p>
+        <span class="chip chip-success">Valid to 2026-05-30</span>
+      </div>
+    </button>
+  </div>
+</section>
+
+<!-- ============ COMMITMENT ============ -->
+<section class="container-h py-16 md:py-20 border-t border-hairline">
+  <div class="grid lg:grid-cols-12 gap-10">
+    <div class="lg:col-span-7 reveal">
+      <h2 class="text-headline-lg text-ink mb-5">Our commitment</h2>
+      <p class="text-body-md text-ink-muted">
+        We are strongly committed to ensuring a safe and healthy working environment for our workers, contractors, visitors and others working at our worksites or who may be affected by our operations &mdash; as well as protecting the environment.
+      </p>
+      <p class="text-body-md text-ink-muted mt-4">
+        To achieve these goals, all Company locations shall adhere to the following principles.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRINCIPLES ============ -->
+<section class="container-h py-4 md:py-8 border-t border-hairline">
+  <div class="grid sm:grid-cols-2 gap-4 py-12 md:py-16 reveal-stagger">
+    <div class="card">
+      <div class="policy-item">
+        <div class="icon-tile"><i data-lucide="search" class="w-4.5 h-4.5"></i></div>
+        <p class="text-body-md text-ink-muted">Identification and evaluation of all HSE hazards or aspects and the management of those risks to reduce their impacts to acceptable levels.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="policy-item">
+        <div class="icon-tile"><i data-lucide="scale" class="w-4.5 h-4.5"></i></div>
+        <p class="text-body-md text-ink-muted">Compliance with all applicable HSE legislation.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="policy-item">
+        <div class="icon-tile"><i data-lucide="shield-check" class="w-4.5 h-4.5"></i></div>
+        <p class="text-body-md text-ink-muted">Prevention of incidents, injuries, and pollution.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="policy-item">
+        <div class="icon-tile"><i data-lucide="recycle" class="w-4.5 h-4.5"></i></div>
+        <p class="text-body-md text-ink-muted">Reduction of waste and conservation of resources.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="policy-item">
+        <div class="icon-tile"><i data-lucide="bar-chart-3" class="w-4.5 h-4.5"></i></div>
+        <p class="text-body-md text-ink-muted">Recording and communicating HSE performance throughout the organization.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="policy-item">
+        <div class="icon-tile"><i data-lucide="trending-up" class="w-4.5 h-4.5"></i></div>
+        <p class="text-body-md text-ink-muted">Continual improvement of HSE performance.</p>
+      </div>
+    </div>
+    <div class="card card-accent sm:col-span-2" style="--accent:#F0741F; background:rgba(240,116,31,0.06);">
+      <div class="policy-item">
+        <div class="icon-tile" style="background:rgba(240,116,31,0.16); color:#F0741F;"><i data-lucide="octagon-x" class="w-4.5 h-4.5"></i></div>
+        <div>
+          <h3 class="text-title-md text-ink mb-1">The right to STOP WORK</h3>
+          <p class="text-body-md text-ink-muted">Every worker has the right to stop work and intervene when it is not safe to continue.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GOVERNANCE ============ -->
+<section class="container-h py-16 md:py-20 border-t border-hairline">
+  <h2 class="text-headline-lg text-ink mb-10 reveal">Governance &amp; implementation</h2>
+  <div class="grid lg:grid-cols-2 gap-4 reveal-stagger">
+    <div class="card-elevated">
+      <div class="icon-tile mb-4"><i data-lucide="user-check" class="w-4.5 h-4.5"></i></div>
+      <h3 class="text-title-md text-ink mb-2">Leadership commitment</h3>
+      <p class="text-body-sm text-ink-muted">The Managing Director and senior management shall visibly uphold these principles throughout the Company and integrate them into the Company&rsquo;s HSE Management System. Management shall regularly review HSE performance.</p>
+    </div>
+    <div class="card-elevated">
+      <div class="icon-tile mb-4"><i data-lucide="clipboard-list" class="w-4.5 h-4.5"></i></div>
+      <h3 class="text-title-md text-ink mb-2">Management responsibility</h3>
+      <p class="text-body-sm text-ink-muted">Management and supervisory personnel at each division and location shall be responsible for implementing and maintaining the Company&rsquo;s HSE Policy and Management System.</p>
+    </div>
+    <div class="card-elevated">
+      <div class="icon-tile mb-4"><i data-lucide="handshake" class="w-4.5 h-4.5"></i></div>
+      <h3 class="text-title-md text-ink mb-2">Contractors &amp; subcontractors</h3>
+      <p class="text-body-sm text-ink-muted">Contractors and subcontractors shall work in accordance with the Company&rsquo;s HSE Policy and comply with applicable HSE legislation. Regular HSE audits shall be conducted to evaluate conformance to the HSE Management System.</p>
+    </div>
+    <div class="card-elevated">
+      <div class="icon-tile mb-4"><i data-lucide="graduation-cap" class="w-4.5 h-4.5"></i></div>
+      <h3 class="text-title-md text-ink mb-2">Training &amp; accountability</h3>
+      <p class="text-body-sm text-ink-muted">Every employee whose work may create a significant HSE impact shall be trained and held accountable for complying with the Company&rsquo;s HSE Policy and related procedures, practices, instructions and rules. Working safely and in an environmentally appropriate manner are conditions of employment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTIFICATE MODAL ============ -->
+<div id="cert-modal" class="fixed inset-0 z-[70]" hidden>
+  <div id="cert-backdrop" class="absolute inset-0" style="background:rgba(4,16,27,0.85); backdrop-filter:blur(4px);"></div>
+  <div class="absolute inset-0 flex items-center justify-center p-5 overflow-y-auto">
+    <div id="cert-modal-panel" class="relative" style="max-width:520px; width:100%; opacity:0; transform:translateY(12px) scale(.98); transition:opacity .25s var(--ease), transform .25s var(--ease);">
+      <button id="cert-close" type="button" class="absolute -top-4 -right-4 w-9 h-9 rounded-full flex items-center justify-center text-ink border border-hairline-strong hover:bg-elevated transition-colors duration-150" style="background:#0A3D62;" aria-label="Close certificate">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      <img id="cert-modal-img" src="" alt="" class="w-full h-auto rounded-lg" style="box-shadow:0 24px 60px rgba(0,0,0,0.55);">
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-hairline">
+  <div class="container-h pt-16 pb-8">
+    <div class="grid md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 pb-12 border-b border-hairline">
+      <div>
+        <div class="flex items-center gap-2.5 mb-5">
+          <img src="brand_assets/evomec-mark.png" alt="Evomec" class="w-8 h-8 object-contain">
+          <span class="font-semibold text-[15px] text-ink tracking-tight">EVOMEC</span>
+        </div>
+        <p class="text-body-sm text-ink-muted max-w-xs mb-5">Engineering certainty for a safer energy future through integrated EPC and geosolutions across Sub-Saharan Africa.</p>
+      </div>
+      <div>
+        <h4 class="text-label-sm text-ink-faint mb-4">Our Services</h4>
+        <ul class="space-y-2.5 text-body-sm">
+          <li><a href="services.html#civil-works" class="text-ink-muted hover:text-ink transition-colors duration-150">Civil Works</a></li>
+          <li><a href="services.html#mechanical-works" class="text-ink-muted hover:text-ink transition-colors duration-150">Mechanical Works</a></li>
+          <li><a href="services.html#equipment-leasing" class="text-ink-muted hover:text-ink transition-colors duration-150">Equipment Leasing</a></li>
+          <li><a href="services.html#jetty-pipeline" class="text-ink-muted hover:text-ink transition-colors duration-150">Jetty &amp; Pipeline Construction</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-label-sm text-ink-faint mb-4">Company</h4>
+        <ul class="space-y-2.5 text-body-sm">
+          <li><a href="our-story.html" class="text-ink-muted hover:text-ink transition-colors duration-150">About Us</a></li>
+          <li><a href="projects.html" class="text-ink-muted hover:text-ink transition-colors duration-150">Our Projects</a></li>
+          <li><a href="hse.html" class="text-ink-muted hover:text-ink transition-colors duration-150">HSE &amp; Quality</a></li>
+          <li><a href="careers.html" class="text-ink-muted hover:text-ink transition-colors duration-150">Careers</a></li>
+          <li><a href="index.html#contact" class="text-ink-muted hover:text-ink transition-colors duration-150">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-label-sm text-ink-faint mb-4">Connect</h4>
+        <p class="text-label-sm text-ink-faint mb-1">Head Office</p>
+        <p class="text-body-sm text-ink-muted mb-4">#6 Amaji Street, off Tombia Street, GRA Phase II, Port Harcourt, Rivers State</p>
+        <p class="text-label-sm text-ink-faint mb-1">Direct</p>
+        <p class="text-body-sm text-ink-muted">+234 916 505 2000</p>
+        <p class="text-body-sm text-ink-muted">+233 241 245 992</p>
+        <p class="text-body-sm text-ink-muted">+233 545 399 264</p>
+        <p class="text-body-sm text-ink-muted mb-4">info@evomeclimited.com</p>
+        <a href="https://www.linkedin.com/company/evomec-global-services-ltd/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 h-9 px-3 rounded-md border border-hairline-strong text-ink-muted hover:text-ink hover:bg-elevated transition-colors duration-150" aria-label="Evomec on LinkedIn">
+          <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          <span class="text-body-sm">LinkedIn</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-body-sm text-ink-faint">
+      <p>&copy; 2026 Evomec Global Services. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="index.html#contact" class="hover:text-ink-muted transition-colors duration-150">Privacy Policy</a>
+        <a href="index.html#contact" class="hover:text-ink-muted transition-colors duration-150">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => io.observe(el));
+
+  // Hero background slideshow
+  (function initPageHero() {
+    const track = document.getElementById('page-hero-track');
+    if (!track) return;
+    const images = [
+      'brand_assets/nog-energy-week/DSC06025.jpg',
+      'brand_assets/nog-energy-week/DSC05978.jpg',
+      'brand_assets/nog-energy-week/DSC05854.jpg',
+      'brand_assets/nog-energy-week/DSC05968.jpg',
+      'brand_assets/nog-energy-week/DSC05880.jpg',
+      'brand_assets/nog-energy-week/DSC05925.jpg',
+      'brand_assets/site-photos/IMG_4170.jpg',
+      'brand_assets/site-photos/IMG_4185.JPG',
+      'brand_assets/site-photos/IMG_4186.JPG',
+      'brand_assets/site-photos/IMG_4187.JPG',
+      'brand_assets/site-photos/IMG_4188.JPG',
+    ];
+    images.forEach((src, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'about-hero-slide' + (i === 0 ? ' is-active' : '');
+      slide.innerHTML = `<img src="${src}" alt="Evomec Global Services in the field">`;
+      track.appendChild(slide);
+    });
+    const slides = track.querySelectorAll('.about-hero-slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('is-active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('is-active');
+    }, 5000);
+  })();
+
+  // Certificate lightbox
+  const certModal = document.getElementById('cert-modal');
+  const certPanel = document.getElementById('cert-modal-panel');
+  const certImg = document.getElementById('cert-modal-img');
+  let certLastFocused = null;
+
+  function openCert(src, title) {
+    certImg.src = src;
+    certImg.alt = title;
+    certLastFocused = document.activeElement;
+    certModal.hidden = false;
+    requestAnimationFrame(() => {
+      certPanel.style.opacity = '1';
+      certPanel.style.transform = 'translateY(0) scale(1)';
+    });
+    document.body.style.overflow = 'hidden';
+    document.getElementById('cert-close').focus();
+  }
+
+  function closeCert() {
+    certPanel.style.opacity = '0';
+    certPanel.style.transform = 'translateY(12px) scale(.98)';
+    document.body.style.overflow = '';
+    setTimeout(() => { certModal.hidden = true; }, 250);
+    if (certLastFocused) certLastFocused.focus();
+  }
+
+  document.querySelectorAll('.cert-trigger').forEach(btn => {
+    btn.addEventListener('click', () => openCert(btn.dataset.src, btn.dataset.title));
+  });
+  document.getElementById('cert-close').addEventListener('click', closeCert);
+  document.getElementById('cert-backdrop').addEventListener('click', closeCert);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !certModal.hidden) closeCert();
+  });
+</script>
+
+</body>
+</html>

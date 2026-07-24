@@ -1,0 +1,8 @@
+# Large video files (too big for GitHub)
+video/
+
+# Temp screenshots
+temporary screenshots/
+
+# macOS
+.DS_Store
