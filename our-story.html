@@ -170,6 +170,7 @@
     <nav class="hidden lg:flex items-center gap-7">
       <a href="index.html" class="nav-link">Home</a>
       <a href="our-story.html" class="nav-link current">About</a>
+      <a href="team.html" class="nav-link">Team</a>
       <a href="services.html" class="nav-link">Services</a>
       <a href="projects.html" class="nav-link">Projects</a>
       <a href="hse.html" class="nav-link">HSE</a>
@@ -191,6 +192,7 @@
     <nav class="flex flex-col px-5 py-3">
       <a href="index.html" class="py-3 text-body-md text-ink border-b border-hairline">Home</a>
       <a href="our-story.html" class="py-3 text-body-md text-ink border-b border-hairline">About</a>
+      <a href="team.html" class="py-3 text-body-md text-ink border-b border-hairline">Team</a>
       <a href="services.html" class="py-3 text-body-md text-ink border-b border-hairline">Services</a>
       <a href="projects.html" class="py-3 text-body-md text-ink border-b border-hairline">Projects</a>
       <a href="hse.html" class="py-3 text-body-md text-ink border-b border-hairline">HSE</a>
@@ -323,7 +325,7 @@
         </video>
         <span class="chip chip-tertiary absolute top-4 right-4 pointer-events-none"><i data-lucide="clock" class="w-3 h-3"></i>31:53</span>
       </div>
-      <h3 class="text-title-md text-ink mt-4 mb-1">Full Company Profile</h3>
+      <h3 class="text-title-md text-ink mt-4 mb-1">Brief Company Profile</h3>
       <p class="text-body-sm text-ink-muted">An in-depth look at our capabilities, projects and people.</p>
     </div>
   </div>
@@ -428,17 +430,19 @@
     const track = document.getElementById('about-hero-track');
     if (!track) return;
     const images = [
-      'brand_assets/nog-energy-week/DSC05854.jpg',
-      'brand_assets/nog-energy-week/DSC05877.jpg',
-      'brand_assets/nog-energy-week/DSC05908.jpg',
-      'brand_assets/nog-energy-week/DSC05925.jpg',
-      'brand_assets/nog-energy-week/DSC05978.jpg',
-      'brand_assets/nog-energy-week/DSC06025.jpg',
       'brand_assets/site-photos/IMG_4170.jpg',
       'brand_assets/site-photos/IMG_4185.JPG',
       'brand_assets/site-photos/IMG_4186.JPG',
       'brand_assets/site-photos/IMG_4187.JPG',
       'brand_assets/site-photos/IMG_4188.JPG',
+      'brand_assets/site-photos/1P2A1655.jpg',
+      'brand_assets/site-photos/1P2A8839_result.png',
+      'brand_assets/site-photos/1P2A8853_result.png',
+      'brand_assets/site-photos/GOPR6421.JPG',
+      'brand_assets/site-photos/GOPR6425.JPG',
+      'brand_assets/site-photos/GOPR6426.JPG',
+      'brand_assets/site-photos/evomec-crew-celebration.png',
+      'brand_assets/site-photos/evomec-field-team.png',
     ];
     images.forEach((src, i) => {
       const slide = document.createElement('div');

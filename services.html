@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Services | Evomec Global Services</title>
-<meta name="description" content="Evomec Global Services' four core service lines: Civil Works, Mechanical Works, Equipment Leasing, and Jetty & Pipeline Construction and Maintenance.">
+<meta name="description" content="Evomec Global Services' seven core service lines: Ground Improvements & Civil Works, Mechanical & Piping Services, Equipment Leasing & Maintenance, Plant Modification & Facility Upgrade, Jetty Construction & Shoreline Protection, Rigging & Heavy Lifting, and Precommissioning & Commissioning.">
 <link rel="icon" type="image/png" href="brand_assets/evomec-mark.png">
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -150,18 +150,13 @@
   .service-index{ font-family:'JetBrains Mono', monospace; font-size:0.875rem; color:#7E8FA3; }
   .deliverable-item{ display:flex; align-items:center; gap:10px; }
 
-  /* Gallery placeholder tile */
-  .photo-slot{ aspect-ratio:1/1; border-radius:12px; border:1.5px dashed rgba(44,110,155,0.55); background:rgba(10,61,98,0.5);
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; color:#7E8FA3;
-    transition:border-color .2s var(--ease), color .2s var(--ease), background-color .2s var(--ease); cursor:pointer; }
-  .photo-slot:hover{ border-color:#F0741F; color:#F0741F; background:rgba(240,116,31,0.06); }
-
-  /* Modal */
-  #gallery-modal{ position:fixed; inset:0; z-index:70; }
-  #gallery-modal[hidden]{ display:none; }
-  #gallery-backdrop{ position:absolute; inset:0; background:rgba(4,16,27,0.8); backdrop-filter:blur(4px); }
-  .modal-panel{ opacity:0; transform:translateY(12px) scale(.98); transition:opacity .25s var(--ease), transform .25s var(--ease); }
-  #gallery-modal.is-open .modal-panel{ opacity:1; transform:translateY(0) scale(1); }
+  /* Service card preview photo */
+  .service-photo{ aspect-ratio:16/9; border-radius:12px; border:1.5px dashed rgba(44,110,155,0.55); background:rgba(10,61,98,0.5);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; color:#7E8FA3; margin-bottom:20px; overflow:hidden;
+    transition:border-color .2s var(--ease), color .2s var(--ease); }
+  .service-photo:hover{ border-color:#F0741F; color:#F0741F; }
+  .service-photo.has-photo{ border-style:solid; border-color:transparent; }
+  .service-photo.has-photo img{ width:100%; height:100%; object-fit:cover; }
 </style>
 </head>
 
@@ -181,6 +176,7 @@
     <nav class="hidden lg:flex items-center gap-7">
       <a href="index.html" class="nav-link">Home</a>
       <a href="our-story.html" class="nav-link">About</a>
+      <a href="team.html" class="nav-link">Team</a>
       <a href="services.html" class="nav-link current">Services</a>
       <a href="projects.html" class="nav-link">Projects</a>
       <a href="hse.html" class="nav-link">HSE</a>
@@ -202,6 +198,7 @@
     <nav class="flex flex-col px-5 py-3">
       <a href="index.html" class="py-3 text-body-md text-ink border-b border-hairline">Home</a>
       <a href="our-story.html" class="py-3 text-body-md text-ink border-b border-hairline">About</a>
+      <a href="team.html" class="py-3 text-body-md text-ink border-b border-hairline">Team</a>
       <a href="services.html" class="py-3 text-body-md text-primary border-b border-hairline">Services</a>
       <a href="projects.html" class="py-3 text-body-md text-ink border-b border-hairline">Projects</a>
       <a href="hse.html" class="py-3 text-body-md text-ink border-b border-hairline">HSE</a>
@@ -227,7 +224,7 @@
     <p class="text-label-sm text-primary mb-4 reveal" style="transition-delay:40ms">What we do</p>
     <h1 class="text-headline-lg text-ink max-w-3xl reveal" style="transition-delay:80ms; font-size:clamp(2.25rem, 6.7vw, 6rem); line-height:1.04; letter-spacing:-0.03em;">Our core services</h1>
     <p class="text-body-md text-ink-muted max-w-2xl mt-6 reveal" style="transition-delay:120ms; font-size:clamp(1rem, 1.6vw, 1.4375rem);">
-      Four integrated service lines covering the full lifecycle of energy infrastructure &mdash; from civil and mechanical works through equipment support and marine construction. Select a service to view its project gallery.
+      Seven integrated service lines covering the full lifecycle of energy infrastructure &mdash; from civil works and mechanical fabrication through plant upgrades, marine construction and commissioning. Select a service to view its project gallery.
     </p>
   </div>
 </section>
@@ -237,75 +234,150 @@
   <div class="grid md:grid-cols-2 gap-5 py-12 md:py-16 reveal-stagger">
 
     <article id="civil-works" class="service-card">
+      <div class="service-photo has-photo">
+        <img src="brand_assets/service-photos/civil-works.jpg" alt="Ground improvements and civil works">
+      </div>
       <div class="flex items-start justify-between mb-6">
         <div class="icon-tile-lg"><i data-lucide="building-2" class="w-6 h-6"></i></div>
         <span class="service-index">01</span>
       </div>
-      <h2 class="text-headline-md text-ink mb-3">Civil Works</h2>
-      <p class="text-body-md text-ink-muted mb-6">Site preparation, piling and foundation engineering, structural concrete, and access road construction and rehabilitation for industrial and energy facilities.</p>
+      <h2 class="text-headline-md text-ink mb-3">Ground Improvements &amp; Civil Works</h2>
+      <p class="text-body-md text-ink-muted mb-6">Site preparation, ground improvement, piling and foundation engineering, and structural concrete for industrial and energy facilities.</p>
       <div class="space-y-2.5 mb-8">
-        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Site preparation &amp; leveling</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Site preparation &amp; ground improvement</span></div>
         <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Piling &amp; foundation engineering</span></div>
         <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Structural concrete works</span></div>
         <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Access road construction &amp; rehabilitation</span></div>
       </div>
-      <button type="button" class="btn btn-secondary gallery-trigger" data-title="Civil Works" data-desc="Site preparation, foundations, structural concrete and road works across our project sites." data-count="8">
+      <a href="projects.html" class="btn btn-secondary">
         <i data-lucide="image" class="w-4 h-4"></i> View gallery
-      </button>
+      </a>
     </article>
 
     <article id="mechanical-works" class="service-card">
+      <div class="service-photo has-photo">
+        <img src="brand_assets/service-photos/mechanical-piping.jpg" alt="Mechanical and piping services">
+      </div>
       <div class="flex items-start justify-between mb-6">
         <div class="icon-tile-lg"><i data-lucide="cog" class="w-6 h-6"></i></div>
         <span class="service-index">02</span>
       </div>
-      <h2 class="text-headline-md text-ink mb-3">Mechanical Works</h2>
-      <p class="text-body-md text-ink-muted mb-6">Mechanical installation, equipment erection, structural and piping fabrication, and plant maintenance support across onshore and offshore facilities.</p>
+      <h2 class="text-headline-md text-ink mb-3">Mechanical &amp; Piping Services</h2>
+      <p class="text-body-md text-ink-muted mb-6">Mechanical installation, equipment erection, and structural and piping fabrication across onshore and offshore facilities.</p>
       <div class="space-y-2.5 mb-8">
         <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Equipment installation &amp; erection</span></div>
         <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Structural &amp; piping fabrication</span></div>
-        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Plant &amp; machinery maintenance</span></div>
-        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Static &amp; rotating equipment overhaul</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Welding &amp; NDT inspection</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Static &amp; rotating equipment support</span></div>
       </div>
-      <button type="button" class="btn btn-secondary gallery-trigger" data-title="Mechanical Works" data-desc="Installation, fabrication and plant maintenance work delivered by our mechanical teams." data-count="8">
+      <a href="projects.html" class="btn btn-secondary">
         <i data-lucide="image" class="w-4 h-4"></i> View gallery
-      </button>
+      </a>
     </article>
 
     <article id="equipment-leasing" class="service-card">
+      <div class="service-photo has-photo">
+        <img src="brand_assets/site-photos/equipment-leasing-fleet.jpg" alt="Evomec equipment leasing fleet">
+      </div>
       <div class="flex items-start justify-between mb-6">
         <div class="icon-tile-lg"><i data-lucide="truck" class="w-6 h-6"></i></div>
         <span class="service-index">03</span>
       </div>
-      <h2 class="text-headline-md text-ink mb-3">Equipment Leasing</h2>
-      <p class="text-body-md text-ink-muted mb-6">Reliable heavy equipment, machinery and specialized tools available for lease to support field operations, construction and facility maintenance.</p>
+      <h2 class="text-headline-md text-ink mb-3">Equipment Leasing &amp; Maintenance</h2>
+      <p class="text-body-md text-ink-muted mb-6">Reliable heavy equipment, machinery and specialized tools available for lease, backed by scheduled maintenance to keep field operations running.</p>
       <div class="space-y-2.5 mb-8">
         <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Heavy construction machinery</span></div>
         <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Marine &amp; swamp support craft</span></div>
-        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Welding &amp; fabrication equipment</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Preventive &amp; corrective maintenance</span></div>
         <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Site power &amp; lifting equipment</span></div>
       </div>
-      <button type="button" class="btn btn-secondary gallery-trigger" data-title="Equipment Leasing" data-desc="Our fleet of heavy machinery, marine craft and specialized equipment available for lease." data-count="8">
+      <a href="projects.html" class="btn btn-secondary">
         <i data-lucide="image" class="w-4 h-4"></i> View gallery
-      </button>
+      </a>
+    </article>
+
+    <article id="plant-modification" class="service-card">
+      <div class="service-photo has-photo">
+        <img src="brand_assets/service-photos/plant-modification.jpg" alt="Plant modification and facility upgrade">
+      </div>
+      <div class="flex items-start justify-between mb-6">
+        <div class="icon-tile-lg"><i data-lucide="sliders-horizontal" class="w-6 h-6"></i></div>
+        <span class="service-index">04</span>
+      </div>
+      <h2 class="text-headline-md text-ink mb-3">Plant Modification &amp; Facility Upgrade</h2>
+      <p class="text-body-md text-ink-muted mb-6">Engineering, retrofit and upgrade of existing plant and facilities to extend asset life, improve throughput and meet evolving operational requirements.</p>
+      <div class="space-y-2.5 mb-8">
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Brownfield engineering &amp; tie-ins</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Process plant retrofit &amp; debottlenecking</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Facility upgrades &amp; life extension</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Structural &amp; piping modifications</span></div>
+      </div>
+      <a href="projects.html" class="btn btn-secondary">
+        <i data-lucide="image" class="w-4 h-4"></i> View gallery
+      </a>
     </article>
 
     <article id="jetty-pipeline" class="service-card">
+      <div class="service-photo has-photo">
+        <img src="brand_assets/service-photos/jetty-shoreline.jpg" alt="Jetty construction and shoreline protection">
+      </div>
       <div class="flex items-start justify-between mb-6">
         <div class="icon-tile-lg"><i data-lucide="anchor" class="w-6 h-6"></i></div>
-        <span class="service-index">04</span>
+        <span class="service-index">05</span>
       </div>
-      <h2 class="text-headline-md text-ink mb-3">Jetty &amp; Pipeline Construction and Maintenance</h2>
-      <p class="text-body-md text-ink-muted mb-6">API-standard jetty construction, pipeline laying, welding and integrity maintenance across swamp, nearshore and land terrains.</p>
+      <h2 class="text-headline-md text-ink mb-3">Jetty Construction &amp; Shoreline Protection</h2>
+      <p class="text-body-md text-ink-muted mb-6">API-standard jetty and marine terminal construction, and shoreline and erosion protection works across swamp, nearshore and coastal terrains.</p>
       <div class="space-y-2.5 mb-8">
         <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Jetty &amp; marine terminal construction</span></div>
-        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">API-standard pipeline laying &amp; welding</span></div>
-        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Hydrostatic &amp; integrity testing</span></div>
-        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Corrosion control &amp; maintenance</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Shoreline &amp; erosion protection</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Marine &amp; sheet piling</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Dredging &amp; foreshore works</span></div>
       </div>
-      <button type="button" class="btn btn-secondary gallery-trigger" data-title="Jetty &amp; Pipeline Construction and Maintenance" data-desc="Marine and pipeline construction, welding and integrity maintenance across our terrains of operation." data-count="8">
+      <a href="projects.html" class="btn btn-secondary">
         <i data-lucide="image" class="w-4 h-4"></i> View gallery
-      </button>
+      </a>
+    </article>
+
+    <article id="rigging-heavy-lifting" class="service-card">
+      <div class="service-photo has-photo">
+        <img src="brand_assets/service-photos/rigging-heavy-lifting.jpg" alt="Rigging and heavy lifting">
+      </div>
+      <div class="flex items-start justify-between mb-6">
+        <div class="icon-tile-lg"><i data-lucide="forklift" class="w-6 h-6"></i></div>
+        <span class="service-index">06</span>
+      </div>
+      <h2 class="text-headline-md text-ink mb-3">Rigging &amp; Heavy Lifting</h2>
+      <p class="text-body-md text-ink-muted mb-6">Engineered lifting and rigging of heavy vessels, modules and equipment, executed with certified plant and experienced lift supervisors.</p>
+      <div class="space-y-2.5 mb-8">
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Lift planning &amp; engineering</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Heavy vessel &amp; module transport</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Crane &amp; rigging operations</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Certified lifting equipment &amp; supervision</span></div>
+      </div>
+      <a href="projects.html" class="btn btn-secondary">
+        <i data-lucide="image" class="w-4 h-4"></i> View gallery
+      </a>
+    </article>
+
+    <article id="precommissioning-commissioning" class="service-card">
+      <div class="service-photo has-photo">
+        <img src="brand_assets/service-photos/precommissioning-commissioning.jpg" alt="Precommissioning and commissioning">
+      </div>
+      <div class="flex items-start justify-between mb-6">
+        <div class="icon-tile-lg"><i data-lucide="clipboard-check" class="w-6 h-6"></i></div>
+        <span class="service-index">07</span>
+      </div>
+      <h2 class="text-headline-md text-ink mb-3">Precommissioning &amp; Commissioning</h2>
+      <p class="text-body-md text-ink-muted mb-6">Systematic precommissioning and commissioning of process systems, ensuring assets are verified, tested and ready for safe start-up.</p>
+      <div class="space-y-2.5 mb-8">
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">System walkdowns &amp; punch listing</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Flushing, testing &amp; leak checks</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Functional &amp; performance testing</span></div>
+        <div class="deliverable-item"><i data-lucide="check" class="w-4 h-4 text-secondary shrink-0"></i><span class="text-body-sm text-ink-muted">Start-up support &amp; handover</span></div>
+      </div>
+      <a href="projects.html" class="btn btn-secondary">
+        <i data-lucide="image" class="w-4 h-4"></i> View gallery
+      </a>
     </article>
 
   </div>
@@ -386,23 +458,6 @@
   </div>
 </footer>
 
-<!-- ============ GALLERY MODAL ============ -->
-<div id="gallery-modal" hidden>
-  <div id="gallery-backdrop"></div>
-  <div class="absolute inset-0 flex items-start justify-center overflow-y-auto py-10 px-5">
-    <div class="modal-panel card-elevated w-full relative" style="max-width:820px; padding:32px;">
-      <button id="gallery-close" class="absolute top-5 right-5 md:top-6 md:right-6 w-9 h-9 rounded-md border border-hairline-strong flex items-center justify-center text-ink-muted hover:text-ink hover:bg-elevated transition-colors duration-150" aria-label="Close gallery">
-        <i data-lucide="x" class="w-4 h-4"></i>
-      </button>
-      <p class="text-label-sm text-secondary mb-2">Project Gallery</p>
-      <h3 id="gallery-title" class="text-headline-md text-ink mb-2 pr-12">Civil Works</h3>
-      <p id="gallery-desc" class="text-body-sm text-ink-muted mb-8 max-w-xl"></p>
-      <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
-      <p class="text-body-sm text-ink-faint mt-6">Photos coming soon &mdash; each slot is reserved for a project image from this service line.</p>
-    </div>
-  </div>
-</div>
-
 <script>
   lucide.createIcons();
 
@@ -427,17 +482,19 @@
     const track = document.getElementById('page-hero-track');
     if (!track) return;
     const images = [
-      'brand_assets/nog-energy-week/DSC05877.jpg',
-      'brand_assets/nog-energy-week/DSC05908.jpg',
-      'brand_assets/nog-energy-week/DSC05968.jpg',
-      'brand_assets/nog-energy-week/DSC05978.jpg',
-      'brand_assets/nog-energy-week/DSC06025.jpg',
-      'brand_assets/nog-energy-week/DSC05854.jpg',
       'brand_assets/site-photos/IMG_4170.jpg',
       'brand_assets/site-photos/IMG_4185.JPG',
       'brand_assets/site-photos/IMG_4186.JPG',
       'brand_assets/site-photos/IMG_4187.JPG',
       'brand_assets/site-photos/IMG_4188.JPG',
+      'brand_assets/site-photos/1P2A1655.jpg',
+      'brand_assets/site-photos/1P2A8839_result.png',
+      'brand_assets/site-photos/1P2A8853_result.png',
+      'brand_assets/site-photos/GOPR6421.JPG',
+      'brand_assets/site-photos/GOPR6425.JPG',
+      'brand_assets/site-photos/GOPR6426.JPG',
+      'brand_assets/site-photos/evomec-crew-celebration.png',
+      'brand_assets/site-photos/evomec-field-team.png',
     ];
     images.forEach((src, i) => {
       const slide = document.createElement('div');
@@ -455,54 +512,6 @@
   })();
 
   // Gallery modal
-  const modal = document.getElementById('gallery-modal');
-  const modalTitle = document.getElementById('gallery-title');
-  const modalDesc = document.getElementById('gallery-desc');
-  const modalGrid = document.getElementById('gallery-grid');
-  let lastFocused = null;
-
-  function openGallery(title, desc, count){
-    modalTitle.textContent = title;
-    modalDesc.textContent = desc;
-    modalGrid.innerHTML = '';
-    for (let i = 1; i <= count; i++) {
-      const slot = document.createElement('div');
-      slot.className = 'photo-slot';
-      slot.innerHTML = `<i data-lucide="image-plus" class="w-5 h-5"></i><span class="text-body-sm">Photo ${i}</span>`;
-      modalGrid.appendChild(slot);
-    }
-    lucide.createIcons();
-    lastFocused = document.activeElement;
-    modal.hidden = false;
-    requestAnimationFrame(() => modal.classList.add('is-open'));
-    document.body.style.overflow = 'hidden';
-    document.getElementById('gallery-close').focus();
-  }
-
-  function closeGallery(){
-    modal.classList.remove('is-open');
-    document.body.style.overflow = '';
-    setTimeout(() => { modal.hidden = true; }, 250);
-    if (lastFocused) lastFocused.focus();
-  }
-
-  document.querySelectorAll('.gallery-trigger').forEach(btn => {
-    btn.addEventListener('click', () => {
-      openGallery(btn.dataset.title, btn.dataset.desc, parseInt(btn.dataset.count, 10) || 8);
-    });
-  });
-  document.getElementById('gallery-close').addEventListener('click', closeGallery);
-  document.getElementById('gallery-backdrop').addEventListener('click', closeGallery);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal.hidden) closeGallery();
-  });
-
-  // Deep-link support: ?gallery=civil-works or #civil-works with ?open=1
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('gallery')) {
-    const btn = document.querySelector(`#${params.get('gallery')} .gallery-trigger`);
-    if (btn) btn.click();
-  }
 </script>
 
 </body>

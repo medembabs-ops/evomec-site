@@ -141,6 +141,31 @@
   .project-photo:hover{ border-color:#F0741F; }
   .project-photo:hover .project-photo-hint{ color:#F0741F; }
   .project-photo-hint{ color:#7E8FA3; transition:color .2s var(--ease); }
+  .project-photo.has-photo{ border-style:solid; border-color:transparent; }
+
+  .gallery-card{ cursor:pointer; }
+  .gallery-card:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(240,116,31,0.35); }
+  .gallery-hint{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:6px;
+    background:linear-gradient(rgba(7,42,69,0.15), rgba(7,42,69,0.65)); color:#F0F4F8; font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem; font-weight:500; opacity:0; transition:opacity .2s var(--ease); }
+  .gallery-card:hover .gallery-hint, .gallery-card:focus-visible .gallery-hint{ opacity:1; }
+
+  .lightbox{ position:fixed; inset:0; z-index:100; background:rgba(3,20,33,0.92); backdrop-filter:blur(6px);
+    opacity:0; pointer-events:none; transition:opacity .25s var(--ease); display:flex; flex-direction:column; }
+  .lightbox.is-open{ opacity:1; pointer-events:auto; }
+  .lightbox-stage{ position:relative; flex:1; display:flex; align-items:center; justify-content:center; padding:24px clamp(56px, 8vw, 96px); min-height:0; }
+  .lightbox-slide{ position:absolute; inset:24px clamp(56px, 8vw, 96px); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .35s var(--ease); }
+  .lightbox-slide.is-active{ opacity:1; }
+  .lightbox-slide img{ max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:12px; box-shadow:0 24px 60px rgba(0,0,0,0.55); }
+  .lightbox-nav{ position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:999px;
+    background:rgba(10,61,98,0.7); border:1px solid rgba(44,110,155,0.55); color:#F0F4F8; display:flex; align-items:center; justify-content:center;
+    transition:background-color .15s var(--ease), border-color .15s var(--ease); }
+  .lightbox-nav:hover{ background:#2F5A7A; border-color:#F0741F; }
+  .lightbox-prev{ left:clamp(8px, 2vw, 24px); }
+  .lightbox-next{ right:clamp(8px, 2vw, 24px); }
+  .lightbox-close{ width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#F0F4F8;
+    transition:background-color .15s var(--ease); }
+  .lightbox-close:hover{ background:rgba(44,110,155,0.24); }
 
   [data-lucide]{ stroke-width:1.75; }
 </style>
@@ -162,6 +187,7 @@
     <nav class="hidden lg:flex items-center gap-7">
       <a href="index.html" class="nav-link">Home</a>
       <a href="our-story.html" class="nav-link">About</a>
+      <a href="team.html" class="nav-link">Team</a>
       <a href="services.html" class="nav-link">Services</a>
       <a href="projects.html" class="nav-link current">Projects</a>
       <a href="hse.html" class="nav-link">HSE</a>
@@ -183,6 +209,7 @@
     <nav class="flex flex-col px-5 py-3">
       <a href="index.html" class="py-3 text-body-md text-ink border-b border-hairline">Home</a>
       <a href="our-story.html" class="py-3 text-body-md text-ink border-b border-hairline">About</a>
+      <a href="team.html" class="py-3 text-body-md text-ink border-b border-hairline">Team</a>
       <a href="services.html" class="py-3 text-body-md text-ink border-b border-hairline">Services</a>
       <a href="projects.html" class="py-3 text-body-md text-primary border-b border-hairline">Projects</a>
       <a href="hse.html" class="py-3 text-body-md text-ink border-b border-hairline">HSE</a>
@@ -228,98 +255,120 @@
 <section class="container-h pb-16 md:pb-20">
   <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal-stagger">
 
-    <article class="card" data-category="epc">
-      <div class="project-photo flex flex-col items-center justify-center gap-2 project-photo-hint">
-        <i data-lucide="image-plus" class="w-6 h-6"></i>
-        <span class="text-body-sm">Add project photo</span>
+    <article class="card gallery-card" data-category="civil" data-gallery="airstrip" role="button" tabindex="0">
+      <div class="project-photo has-photo">
+        <img src="brand_assets/projects/airstrip/cover.jpg" alt="Airstrip construction" class="w-full h-full object-cover">
+        <div class="gallery-hint"><i data-lucide="expand" class="w-3.5 h-3.5"></i>View gallery</div>
       </div>
       <div class="p-6">
         <div class="flex items-center justify-between mb-2">
-          <span class="chip chip-tertiary">Ongoing</span>
+          <span class="chip chip-success">Completed</span>
           <span class="text-mono-sm text-ink-faint">01</span>
         </div>
-        <h3 class="text-title-md text-ink mb-1">Project name</h3>
-        <p class="text-body-sm text-ink-muted flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>Location, State</p>
+        <h3 class="text-title-md text-ink mb-1">Airstrip</h3>
+        <p class="text-body-sm text-ink-muted flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>Nigeria</p>
       </div>
     </article>
 
-    <article class="card" data-category="civil">
-      <div class="project-photo flex flex-col items-center justify-center gap-2 project-photo-hint">
-        <i data-lucide="image-plus" class="w-6 h-6"></i>
-        <span class="text-body-sm">Add project photo</span>
+    <article class="card gallery-card" data-category="mechanical" data-gallery="etp" role="button" tabindex="0">
+      <div class="project-photo has-photo">
+        <img src="brand_assets/projects/etp/cover.jpg" alt="Effluent Treatment Plant" class="w-full h-full object-cover">
+        <div class="gallery-hint"><i data-lucide="expand" class="w-3.5 h-3.5"></i>View gallery</div>
       </div>
       <div class="p-6">
         <div class="flex items-center justify-between mb-2">
-          <span class="chip chip-tertiary">Ongoing</span>
+          <span class="chip chip-success">Completed</span>
           <span class="text-mono-sm text-ink-faint">02</span>
         </div>
-        <h3 class="text-title-md text-ink mb-1">Project name</h3>
-        <p class="text-body-sm text-ink-muted flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>Location, State</p>
+        <h3 class="text-title-md text-ink mb-1">ETP</h3>
+        <p class="text-body-sm text-ink-muted flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>Nigeria</p>
       </div>
     </article>
 
-    <article class="card" data-category="mechanical">
-      <div class="project-photo flex flex-col items-center justify-center gap-2 project-photo-hint">
-        <i data-lucide="image-plus" class="w-6 h-6"></i>
-        <span class="text-body-sm">Add project photo</span>
+    <article class="card gallery-card" data-category="mechanical" data-gallery="metering-skid" role="button" tabindex="0">
+      <div class="project-photo has-photo">
+        <img src="brand_assets/projects/metering-skid/cover.jpg" alt="Metering skid installation" class="w-full h-full object-cover">
+        <div class="gallery-hint"><i data-lucide="expand" class="w-3.5 h-3.5"></i>View gallery</div>
       </div>
       <div class="p-6">
         <div class="flex items-center justify-between mb-2">
-          <span class="chip chip-tertiary">Ongoing</span>
+          <span class="chip chip-success">Completed</span>
           <span class="text-mono-sm text-ink-faint">03</span>
         </div>
-        <h3 class="text-title-md text-ink mb-1">Project name</h3>
-        <p class="text-body-sm text-ink-muted flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>Location, State</p>
+        <h3 class="text-title-md text-ink mb-1">Metering Skid</h3>
+        <p class="text-body-sm text-ink-muted flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>Nigeria</p>
       </div>
     </article>
 
-    <article class="card" data-category="pipeline">
-      <div class="project-photo flex flex-col items-center justify-center gap-2 project-photo-hint">
-        <i data-lucide="image-plus" class="w-6 h-6"></i>
-        <span class="text-body-sm">Add project photo</span>
+    <article class="card gallery-card" data-category="epc" data-gallery="train-4-sd" role="button" tabindex="0">
+      <div class="project-photo has-photo">
+        <img src="brand_assets/projects/train-4-sd/cover.jpg" alt="Train 4 shutdown works" class="w-full h-full object-cover">
+        <div class="gallery-hint"><i data-lucide="expand" class="w-3.5 h-3.5"></i>View gallery</div>
       </div>
       <div class="p-6">
         <div class="flex items-center justify-between mb-2">
-          <span class="chip chip-tertiary">Ongoing</span>
+          <span class="chip chip-success">Completed</span>
           <span class="text-mono-sm text-ink-faint">04</span>
         </div>
-        <h3 class="text-title-md text-ink mb-1">Project name</h3>
-        <p class="text-body-sm text-ink-muted flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>Location, State</p>
+        <h3 class="text-title-md text-ink mb-1">Train 4 SD</h3>
+        <p class="text-body-sm text-ink-muted flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>Nigeria</p>
       </div>
     </article>
 
-    <article class="card" data-category="epc">
-      <div class="project-photo flex flex-col items-center justify-center gap-2 project-photo-hint">
-        <i data-lucide="image-plus" class="w-6 h-6"></i>
-        <span class="text-body-sm">Add project photo</span>
+    <article class="card gallery-card" data-category="mechanical" data-gallery="train-6" role="button" tabindex="0">
+      <div class="project-photo has-photo">
+        <img src="brand_assets/projects/train-6/cover.jpg" alt="Train 6 works" class="w-full h-full object-cover">
+        <div class="gallery-hint"><i data-lucide="expand" class="w-3.5 h-3.5"></i>View gallery</div>
       </div>
       <div class="p-6">
         <div class="flex items-center justify-between mb-2">
-          <span class="chip chip-tertiary">Ongoing</span>
+          <span class="chip chip-success">Completed</span>
           <span class="text-mono-sm text-ink-faint">05</span>
         </div>
-        <h3 class="text-title-md text-ink mb-1">Project name</h3>
-        <p class="text-body-sm text-ink-muted flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>Location, State</p>
+        <h3 class="text-title-md text-ink mb-1">Train 6</h3>
+        <p class="text-body-sm text-ink-muted flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>Nigeria</p>
       </div>
     </article>
 
-    <article class="card" data-category="civil">
-      <div class="project-photo flex flex-col items-center justify-center gap-2 project-photo-hint">
-        <i data-lucide="image-plus" class="w-6 h-6"></i>
-        <span class="text-body-sm">Add project photo</span>
+    <article class="card gallery-card" data-category="mechanical" data-gallery="train-5" role="button" tabindex="0">
+      <div class="project-photo has-photo">
+        <img src="brand_assets/projects/train-5/cover.jpg" alt="Train 5 works" class="w-full h-full object-cover">
+        <div class="gallery-hint"><i data-lucide="expand" class="w-3.5 h-3.5"></i>View gallery</div>
       </div>
       <div class="p-6">
         <div class="flex items-center justify-between mb-2">
-          <span class="chip chip-tertiary">Ongoing</span>
+          <span class="chip chip-success">Completed</span>
           <span class="text-mono-sm text-ink-faint">06</span>
         </div>
-        <h3 class="text-title-md text-ink mb-1">Project name</h3>
-        <p class="text-body-sm text-ink-muted flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>Location, State</p>
+        <h3 class="text-title-md text-ink mb-1">Train 5</h3>
+        <p class="text-body-sm text-ink-muted flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>Nigeria</p>
       </div>
     </article>
 
   </div>
 </section>
+
+<!-- ============ GALLERY LIGHTBOX ============ -->
+<div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="container-h flex items-center justify-between" style="height:64px; flex-shrink:0;">
+    <div>
+      <h3 id="lightbox-title" class="text-title-md text-ink"></h3>
+      <span id="lightbox-counter" class="text-mono-sm text-ink-faint">01 / 01</span>
+    </div>
+    <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close gallery">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+  </div>
+  <div class="lightbox-stage">
+    <div id="lightbox-track" class="relative w-full h-full"></div>
+    <button type="button" id="lightbox-prev" class="lightbox-nav lightbox-prev" aria-label="Previous photo">
+      <i data-lucide="chevron-left" class="w-5 h-5"></i>
+    </button>
+    <button type="button" id="lightbox-next" class="lightbox-nav lightbox-next" aria-label="Next photo">
+      <i data-lucide="chevron-right" class="w-5 h-5"></i>
+    </button>
+  </div>
+</div>
 
 <!-- ============ CTA ============ -->
 <section class="border-t border-hairline">
@@ -420,17 +469,19 @@
     const track = document.getElementById('page-hero-track');
     if (!track) return;
     const images = [
-      'brand_assets/nog-energy-week/DSC05925.jpg',
-      'brand_assets/nog-energy-week/DSC05880.jpg',
-      'brand_assets/nog-energy-week/DSC06025.jpg',
-      'brand_assets/nog-energy-week/DSC05854.jpg',
-      'brand_assets/nog-energy-week/DSC05978.jpg',
-      'brand_assets/nog-energy-week/DSC05908.jpg',
       'brand_assets/site-photos/IMG_4170.jpg',
       'brand_assets/site-photos/IMG_4185.JPG',
       'brand_assets/site-photos/IMG_4186.JPG',
       'brand_assets/site-photos/IMG_4187.JPG',
       'brand_assets/site-photos/IMG_4188.JPG',
+      'brand_assets/site-photos/1P2A1655.jpg',
+      'brand_assets/site-photos/1P2A8839_result.png',
+      'brand_assets/site-photos/1P2A8853_result.png',
+      'brand_assets/site-photos/GOPR6421.JPG',
+      'brand_assets/site-photos/GOPR6425.JPG',
+      'brand_assets/site-photos/GOPR6426.JPG',
+      'brand_assets/site-photos/evomec-crew-celebration.png',
+      'brand_assets/site-photos/evomec-field-team.png',
     ];
     images.forEach((src, i) => {
       const slide = document.createElement('div');
@@ -459,6 +510,85 @@
         card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
       });
     });
+  });
+
+  // Project galleries
+  const galleries = {
+    airstrip: { title: 'Airstrip', count: 66 },
+    etp: { title: 'ETP', count: 73 },
+    'metering-skid': { title: 'Metering Skid', count: 21 },
+    'train-4-sd': { title: 'Train 4 SD', count: 195 },
+    'train-6': { title: 'Train 6', count: 98 },
+    'train-5': { title: 'Train 5', count: 26 },
+  };
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxTrack = document.getElementById('lightbox-track');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxCounter = document.getElementById('lightbox-counter');
+  let currentSlug = null;
+  let lightboxCount = 0;
+  let lightboxCurrent = 0;
+
+  // Renders only the active photo (plus a hidden pre-fetch for the next one)
+  // instead of building every <img> up front — some galleries run past 100 photos.
+  function renderSlide() {
+    const src = `brand_assets/projects/${currentSlug}/gallery-${lightboxCurrent + 1}.jpg`;
+    lightboxTrack.innerHTML = `<div class="lightbox-slide is-active"><img src="${src}" alt="${galleries[currentSlug].title} photo ${lightboxCurrent + 1}"></div>`;
+    const nextSrc = `brand_assets/projects/${currentSlug}/gallery-${(lightboxCurrent + 1) % lightboxCount + 1}.jpg`;
+    new Image().src = nextSrc;
+    updateCounter();
+  }
+
+  function openGallery(slug) {
+    const gallery = galleries[slug];
+    if (!gallery) return;
+    currentSlug = slug;
+    lightboxCount = gallery.count;
+    lightboxCurrent = 0;
+    lightboxTitle.textContent = gallery.title;
+    renderSlide();
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeGallery() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lightboxTrack.innerHTML = '';
+  }
+
+  function updateCounter() {
+    lightboxCounter.textContent = `${String(lightboxCurrent + 1).padStart(2, '0')} / ${String(lightboxCount).padStart(2, '0')}`;
+  }
+
+  function showSlide(idx) {
+    if (!lightboxCount) return;
+    lightboxCurrent = (idx + lightboxCount) % lightboxCount;
+    renderSlide();
+  }
+
+  document.querySelectorAll('.gallery-card').forEach(card => {
+    card.addEventListener('click', () => openGallery(card.dataset.gallery));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openGallery(card.dataset.gallery);
+      }
+    });
+  });
+
+  document.getElementById('lightbox-close').addEventListener('click', closeGallery);
+  document.getElementById('lightbox-next').addEventListener('click', () => showSlide(lightboxCurrent + 1));
+  document.getElementById('lightbox-prev').addEventListener('click', () => showSlide(lightboxCurrent - 1));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeGallery(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeGallery();
+    if (e.key === 'ArrowRight') showSlide(lightboxCurrent + 1);
+    if (e.key === 'ArrowLeft') showSlide(lightboxCurrent - 1);
   });
 </script>
 

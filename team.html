@@ -165,13 +165,11 @@
   }
   .flip-card-back::before{ content:''; position:absolute; top:0; left:0; right:0; height:3px; background:#F0741F; }
   .flip-card-lead{ width:420px; height:560px; }
-  .leadership-subgrid{ display:grid; grid-template-columns:repeat(3, 190px); gap:24px; }
-  @media (max-width: 1023px){
-    .leadership-subgrid{ grid-template-columns:repeat(2, 190px); }
+  .exec-subgrid{ display:grid; grid-template-columns:repeat(2, 190px); gap:24px; justify-content:center; }
+  @media (max-width: 480px){
+    .exec-subgrid{ grid-template-columns:190px; }
   }
-  @media (max-width: 639px){
-    .leadership-subgrid{ grid-template-columns:190px; }
-  }
+  .leadership-subgrid{ display:flex; flex-wrap:wrap; justify-content:center; gap:24px; max-width:618px; margin-inline:auto; }
 </style>
 </head>
 
@@ -190,7 +188,8 @@
 
     <nav class="hidden lg:flex items-center gap-7">
       <a href="index.html" class="nav-link">Home</a>
-      <a href="our-story.html" class="nav-link current">About</a>
+      <a href="our-story.html" class="nav-link">About</a>
+      <a href="team.html" class="nav-link current">Team</a>
       <a href="services.html" class="nav-link">Services</a>
       <a href="projects.html" class="nav-link">Projects</a>
       <a href="hse.html" class="nav-link">HSE</a>
@@ -211,7 +210,8 @@
   <div id="mobile-menu" class="lg:hidden hidden bg-canvas border-t border-hairline">
     <nav class="flex flex-col px-5 py-3">
       <a href="index.html" class="py-3 text-body-md text-ink border-b border-hairline">Home</a>
-      <a href="our-story.html" class="py-3 text-body-md text-primary border-b border-hairline">About</a>
+      <a href="our-story.html" class="py-3 text-body-md text-ink border-b border-hairline">About</a>
+      <a href="team.html" class="py-3 text-body-md text-primary border-b border-hairline">Team</a>
       <a href="services.html" class="py-3 text-body-md text-ink border-b border-hairline">Services</a>
       <a href="projects.html" class="py-3 text-body-md text-ink border-b border-hairline">Projects</a>
       <a href="hse.html" class="py-3 text-body-md text-ink border-b border-hairline">HSE</a>
@@ -252,11 +252,11 @@
     Our top management team provides strategic direction and operational oversight across every project we deliver, backed by ISO-certified systems and a zero-harm safety culture.
   </p>
 
-  <div class="flex flex-wrap gap-6 reveal-stagger">
+  <div class="flex flex-wrap justify-center gap-6 reveal-stagger">
     <div class="flip-card flip-card-lead" tabindex="0">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="https://placehold.co/420x560/0A3D62/7E8FA3?text=Photo" alt="Managing Director portrait">
+          <img src="brand_assets/team-photos/managing-director.jpg" alt="Managing Director portrait">
           <div class="flip-card-label">
             <h3 class="text-title-md text-ink">Managing Director</h3>
           </div>
@@ -269,7 +269,7 @@
       </div>
     </div>
 
-    <div class="leadership-subgrid">
+    <div class="exec-subgrid">
       <div class="flip-card" tabindex="0">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -334,35 +334,143 @@
         </div>
       </div>
 
-      <div class="flip-card" tabindex="0">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="brand_assets/team-photos/IMG_2636.JPG" alt="Contract & Procurement Manager portrait">
-            <div class="flip-card-label">
-              <h3 class="text-body-md font-semibold text-ink">Contract &amp; Procurement MGR</h3>
-            </div>
-          </div>
-          <div class="flip-card-back">
-            <div class="icon-tile mb-4"><i data-lucide="users" class="w-4.5 h-4.5"></i></div>
-            <h3 class="text-body-md font-semibold text-ink mb-1">Contract &amp; Procurement MGR</h3>
-            <p class="text-body-sm text-ink-muted">Contracts &amp; procurement management</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPARTMENT MANAGERS ============ -->
+<section id="department-managers" class="container-h py-16 md:py-20 border-t border-hairline">
+  <p class="text-label-sm text-secondary mb-3 reveal">Our team</p>
+  <h2 class="text-headline-lg text-ink mb-4 reveal" style="transition-delay:60ms">Department &amp; operations managers</h2>
+  <p class="text-body-md text-ink-muted max-w-2xl mb-14 reveal" style="transition-delay:100ms">
+    The department heads coordinating contracts, engineering, logistics and support functions behind every project we deliver.
+  </p>
+
+  <div class="leadership-subgrid reveal-stagger">
+    <div class="flip-card" tabindex="0">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="brand_assets/team-photos/IMG_2636.JPG" alt="Contract & Procurement Manager portrait">
+          <div class="flip-card-label">
+            <h3 class="text-body-md font-semibold text-ink">Contract &amp; Procurement MGR</h3>
           </div>
         </div>
+        <div class="flip-card-back">
+          <div class="icon-tile mb-4"><i data-lucide="users" class="w-4.5 h-4.5"></i></div>
+          <h3 class="text-body-md font-semibold text-ink mb-1">Contract &amp; Procurement MGR</h3>
+          <p class="text-body-sm text-ink-muted">Contracts &amp; procurement management</p>
+        </div>
       </div>
+    </div>
 
-      <div class="flip-card" tabindex="0">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="https://placehold.co/190x254/0A3D62/7E8FA3?text=Photo" alt="Business Dev Manager portrait">
-            <div class="flip-card-label">
-              <h3 class="text-body-md font-semibold text-ink">Business Dev Manager</h3>
-            </div>
+    <div class="flip-card" tabindex="0">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://placehold.co/190x254/0A3D62/7E8FA3?text=Photo" alt="Business Dev Manager portrait">
+          <div class="flip-card-label">
+            <h3 class="text-body-md font-semibold text-ink">Business Dev Manager</h3>
           </div>
-          <div class="flip-card-back">
-            <div class="icon-tile mb-4"><i data-lucide="scale" class="w-4.5 h-4.5"></i></div>
-            <h3 class="text-body-md font-semibold text-ink mb-1">Business Dev Manager</h3>
-            <p class="text-body-sm text-ink-muted">Growth &amp; client relations</p>
+        </div>
+        <div class="flip-card-back">
+          <div class="icon-tile mb-4"><i data-lucide="scale" class="w-4.5 h-4.5"></i></div>
+          <h3 class="text-body-md font-semibold text-ink mb-1">Business Dev Manager</h3>
+          <p class="text-body-sm text-ink-muted">Growth &amp; client relations</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" tabindex="0">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://placehold.co/190x254/0A3D62/7E8FA3?text=Photo" alt="HSE Manager portrait">
+          <div class="flip-card-label">
+            <h3 class="text-body-md font-semibold text-ink">HSE Manager</h3>
           </div>
+        </div>
+        <div class="flip-card-back">
+          <div class="icon-tile mb-4"><i data-lucide="shield-alert" class="w-4.5 h-4.5"></i></div>
+          <h3 class="text-body-md font-semibold text-ink mb-1">HSE Manager</h3>
+          <p class="text-body-sm text-ink-muted">Health, safety &amp; environment oversight</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" tabindex="0">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="brand_assets/team-photos/qaqc-manager.png" alt="QA/QC Manager portrait">
+          <div class="flip-card-label">
+            <h3 class="text-body-md font-semibold text-ink">QA/QC Manager</h3>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <div class="icon-tile mb-4"><i data-lucide="badge-check" class="w-4.5 h-4.5"></i></div>
+          <h3 class="text-body-md font-semibold text-ink mb-1">QA/QC Manager</h3>
+          <p class="text-body-sm text-ink-muted">Quality assurance &amp; control</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" tabindex="0">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://placehold.co/190x254/0A3D62/7E8FA3?text=Photo" alt="Project Manager portrait">
+          <div class="flip-card-label">
+            <h3 class="text-body-md font-semibold text-ink">Project Manager</h3>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <div class="icon-tile mb-4"><i data-lucide="calendar-check" class="w-4.5 h-4.5"></i></div>
+          <h3 class="text-body-md font-semibold text-ink mb-1">Project Manager</h3>
+          <p class="text-body-sm text-ink-muted">Project planning &amp; delivery</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" tabindex="0">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://placehold.co/190x254/0A3D62/7E8FA3?text=Photo" alt="Engineering Manager portrait">
+          <div class="flip-card-label">
+            <h3 class="text-body-md font-semibold text-ink">Engineering Manager</h3>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <div class="icon-tile mb-4"><i data-lucide="compass" class="w-4.5 h-4.5"></i></div>
+          <h3 class="text-body-md font-semibold text-ink mb-1">Engineering Manager</h3>
+          <p class="text-body-sm text-ink-muted">Engineering design &amp; technical oversight</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" tabindex="0">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://placehold.co/190x254/0A3D62/7E8FA3?text=Photo" alt="Logistics Manager portrait">
+          <div class="flip-card-label">
+            <h3 class="text-body-md font-semibold text-ink">Logistics Manager</h3>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <div class="icon-tile mb-4"><i data-lucide="truck" class="w-4.5 h-4.5"></i></div>
+          <h3 class="text-body-md font-semibold text-ink mb-1">Logistics Manager</h3>
+          <p class="text-body-sm text-ink-muted">Fleet, logistics &amp; supply chain</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" tabindex="0">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://placehold.co/190x254/0A3D62/7E8FA3?text=Photo" alt="Finance Manager portrait">
+          <div class="flip-card-label">
+            <h3 class="text-body-md font-semibold text-ink">Finance Manager</h3>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <div class="icon-tile mb-4"><i data-lucide="wallet" class="w-4.5 h-4.5"></i></div>
+          <h3 class="text-body-md font-semibold text-ink mb-1">Finance Manager</h3>
+          <p class="text-body-sm text-ink-muted">Accounts &amp; financial control</p>
         </div>
       </div>
     </div>
@@ -470,14 +578,18 @@
     if (!track) return;
     const images = [
       'brand_assets/site-photos/IMG_4187.JPG',
-      'brand_assets/nog-energy-week/DSC05908.jpg',
       'brand_assets/site-photos/IMG_4186.JPG',
-      'brand_assets/nog-energy-week/DSC05925.jpg',
       'brand_assets/site-photos/IMG_4188.JPG',
-      'brand_assets/nog-energy-week/DSC05854.jpg',
+      'brand_assets/site-photos/1P2A1655.jpg',
+      'brand_assets/site-photos/1P2A8839_result.png',
+      'brand_assets/site-photos/1P2A8853_result.png',
+      'brand_assets/site-photos/GOPR6421.JPG',
+      'brand_assets/site-photos/GOPR6425.JPG',
+      'brand_assets/site-photos/GOPR6426.JPG',
+      'brand_assets/site-photos/evomec-crew-celebration.png',
+      'brand_assets/site-photos/evomec-field-team.png',
       'brand_assets/site-photos/IMG_4170.jpg',
       'brand_assets/site-photos/IMG_4185.JPG',
-      'brand_assets/nog-energy-week/DSC06025.jpg',
     ];
     images.forEach((src, i) => {
       const slide = document.createElement('div');

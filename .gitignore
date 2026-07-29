@@ -4,5 +4,11 @@ video/
 # Temp screenshots
 temporary screenshots/
 
+# Raw photo source dumps (originals already processed into brand_assets/)
+OneDrive_2_29-07-2026/
+OneDrive_3_29-07-2026/
+hero pictures/
+untitled folder/
+
 # macOS
 .DS_Store
