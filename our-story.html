@@ -311,10 +311,11 @@
 
   <div class="grid md:grid-cols-2 gap-6 reveal-stagger">
     <div>
-      <div class="video-slot">
-        <video controls preload="metadata" poster="video/poster-0603.jpg" class="absolute inset-0 w-full h-full object-cover">
-          <source src="video/0603.MP4" type="video/mp4">
-        </video>
+      <div class="video-slot" data-yt-id="chZK84UtRUw" data-yt-start="0">
+        <img src="https://img.youtube.com/vi/chZK84UtRUw/maxresdefault.jpg" alt="Company Overview video thumbnail" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <button type="button" class="play-btn absolute top-1/2 left-1/2" style="transform:translate(-50%,-50%);" aria-label="Play Company Overview video">
+          <i data-lucide="play" class="w-6 h-6" style="color:#fff; margin-left:2px;"></i>
+        </button>
         <span class="chip chip-secondary absolute top-4 right-4 pointer-events-none"><i data-lucide="clock" class="w-3 h-3"></i>4:23</span>
       </div>
       <h3 class="text-title-md text-ink mt-4 mb-1">Company Overview</h3>
@@ -322,10 +323,11 @@
     </div>
 
     <div>
-      <div class="video-slot">
-        <video controls preload="metadata" poster="video/poster-0628.jpg" class="absolute inset-0 w-full h-full object-cover">
-          <source src="video/0628.MP4" type="video/mp4">
-        </video>
+      <div class="video-slot" data-yt-id="R05rp-Rf5Og" data-yt-start="1537">
+        <img src="https://img.youtube.com/vi/R05rp-Rf5Og/maxresdefault.jpg" alt="Brief Company Profile video thumbnail" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <button type="button" class="play-btn absolute top-1/2 left-1/2" style="transform:translate(-50%,-50%);" aria-label="Play Brief Company Profile video">
+          <i data-lucide="play" class="w-6 h-6" style="color:#fff; margin-left:2px;"></i>
+        </button>
         <span class="chip chip-tertiary absolute top-4 right-4 pointer-events-none"><i data-lucide="clock" class="w-3 h-3"></i>31:53</span>
       </div>
       <h3 class="text-title-md text-ink mt-4 mb-1">Brief Company Profile</h3>
@@ -461,6 +463,23 @@
       slides[current].classList.add('is-active');
     }, 5000);
   })();
+
+  // Click-to-play YouTube embeds
+  document.querySelectorAll('.video-slot[data-yt-id]').forEach((slot) => {
+    slot.querySelector('.play-btn').addEventListener('click', () => {
+      const id = slot.dataset.ytId;
+      const start = slot.dataset.ytStart || '0';
+      const iframe = document.createElement('iframe');
+      iframe.className = 'absolute inset-0 w-full h-full';
+      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&start=${start}`;
+      iframe.title = 'YouTube video player';
+      iframe.frameBorder = '0';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      slot.innerHTML = '';
+      slot.appendChild(iframe);
+    });
+  });
 </script>
 
 </body>
