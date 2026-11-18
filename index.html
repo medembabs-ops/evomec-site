@@ -11,7 +11,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
 <script>
   tailwind.config = {
@@ -614,6 +613,7 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <script>
   lucide.createIcons();
 
@@ -631,7 +631,7 @@
         const fit = img.fit || 'cover';
         const bg = img.bg ? `background:${img.bg};` : '';
         slide.style.cssText = bg;
-        slide.innerHTML = `<img src="${img.src}" alt="${img.alt || ''}" class="absolute inset-0 w-full h-full object-${fit}" style="${img.pad ? `padding:${img.pad};` : ''}">`;
+        slide.innerHTML = `<img src="${img.src}" alt="${img.alt || ''}" class="absolute inset-0 w-full h-full object-${fit}" style="${img.pad ? `padding:${img.pad};` : ''}" ${i > 1 ? 'loading="lazy"' : ''}>`;
       } else {
         slide.innerHTML = `
           <div class="icon-tile-lg"><i data-lucide="image" class="w-6 h-6"></i></div>
@@ -671,8 +671,8 @@
       { src: 'brand_assets/site-photos/IMG_4187.JPG', alt: 'Evomec field team on site' },
       { src: 'brand_assets/site-photos/IMG_4188.JPG', alt: 'Evomec field team on site' },
       { src: 'brand_assets/site-photos/1P2A1655.jpg', alt: 'Evomec ETP works' },
-      { src: 'brand_assets/site-photos/1P2A8839_result.png', alt: 'Evomec heavy vessel transport' },
-      { src: 'brand_assets/site-photos/1P2A8853_result.png', alt: 'Evomec heavy vessel transport' },
+      { src: 'brand_assets/site-photos/1P2A8839_result.jpg', alt: 'Evomec heavy vessel transport' },
+      { src: 'brand_assets/site-photos/1P2A8853_result.jpg', alt: 'Evomec heavy vessel transport' },
       { src: 'brand_assets/site-photos/GOPR6421.JPG', alt: 'Evomec metering skid works' },
       { src: 'brand_assets/site-photos/GOPR6425.JPG', alt: 'Evomec metering skid works' },
       { src: 'brand_assets/site-photos/GOPR6426.JPG', alt: 'Evomec metering skid works' },

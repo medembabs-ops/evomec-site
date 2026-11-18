@@ -11,7 +11,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
 <script>
   tailwind.config = {
@@ -257,7 +256,7 @@
 
     <article class="card gallery-card" data-category="civil" data-gallery="airstrip" role="button" tabindex="0">
       <div class="project-photo has-photo">
-        <img src="brand_assets/projects/airstrip/cover.jpg" alt="Airstrip construction" class="w-full h-full object-cover">
+        <img src="brand_assets/projects/airstrip/cover.jpg" alt="Airstrip construction" class="w-full h-full object-cover" loading="lazy">
         <div class="gallery-hint"><i data-lucide="expand" class="w-3.5 h-3.5"></i>View gallery</div>
       </div>
       <div class="p-6">
@@ -272,7 +271,7 @@
 
     <article class="card gallery-card" data-category="mechanical" data-gallery="etp" role="button" tabindex="0">
       <div class="project-photo has-photo">
-        <img src="brand_assets/projects/etp/cover.jpg" alt="Effluent Treatment Plant" class="w-full h-full object-cover">
+        <img src="brand_assets/projects/etp/cover.jpg" alt="Effluent Treatment Plant" class="w-full h-full object-cover" loading="lazy">
         <div class="gallery-hint"><i data-lucide="expand" class="w-3.5 h-3.5"></i>View gallery</div>
       </div>
       <div class="p-6">
@@ -287,7 +286,7 @@
 
     <article class="card gallery-card" data-category="mechanical" data-gallery="metering-skid" role="button" tabindex="0">
       <div class="project-photo has-photo">
-        <img src="brand_assets/projects/metering-skid/cover.jpg" alt="Metering skid installation" class="w-full h-full object-cover">
+        <img src="brand_assets/projects/metering-skid/cover.jpg" alt="Metering skid installation" class="w-full h-full object-cover" loading="lazy">
         <div class="gallery-hint"><i data-lucide="expand" class="w-3.5 h-3.5"></i>View gallery</div>
       </div>
       <div class="p-6">
@@ -302,7 +301,7 @@
 
     <article class="card gallery-card" data-category="epc" data-gallery="train-4-sd" role="button" tabindex="0">
       <div class="project-photo has-photo">
-        <img src="brand_assets/projects/train-4-sd/cover.jpg" alt="Train 4 shutdown works" class="w-full h-full object-cover">
+        <img src="brand_assets/projects/train-4-sd/cover.jpg" alt="Train 4 shutdown works" class="w-full h-full object-cover" loading="lazy">
         <div class="gallery-hint"><i data-lucide="expand" class="w-3.5 h-3.5"></i>View gallery</div>
       </div>
       <div class="p-6">
@@ -317,7 +316,7 @@
 
     <article class="card gallery-card" data-category="mechanical" data-gallery="train-6" role="button" tabindex="0">
       <div class="project-photo has-photo">
-        <img src="brand_assets/projects/train-6/cover.jpg" alt="Train 6 works" class="w-full h-full object-cover">
+        <img src="brand_assets/projects/train-6/cover.jpg" alt="Train 6 works" class="w-full h-full object-cover" loading="lazy">
         <div class="gallery-hint"><i data-lucide="expand" class="w-3.5 h-3.5"></i>View gallery</div>
       </div>
       <div class="p-6">
@@ -332,7 +331,7 @@
 
     <article class="card gallery-card" data-category="mechanical" data-gallery="train-5" role="button" tabindex="0">
       <div class="project-photo has-photo">
-        <img src="brand_assets/projects/train-5/cover.jpg" alt="Train 5 works" class="w-full h-full object-cover">
+        <img src="brand_assets/projects/train-5/cover.jpg" alt="Train 5 works" class="w-full h-full object-cover" loading="lazy">
         <div class="gallery-hint"><i data-lucide="expand" class="w-3.5 h-3.5"></i>View gallery</div>
       </div>
       <div class="p-6">
@@ -347,7 +346,7 @@
 
     <article class="card gallery-card" data-category="civil" data-gallery="brep" role="button" tabindex="0">
       <div class="project-photo has-photo">
-        <img src="brand_assets/projects/brep/cover.jpg" alt="Bonny Road Expansion Project" class="w-full h-full object-cover">
+        <img src="brand_assets/projects/brep/cover.jpg" alt="Bonny Road Expansion Project" class="w-full h-full object-cover" loading="lazy">
         <div class="gallery-hint"><i data-lucide="expand" class="w-3.5 h-3.5"></i>View gallery</div>
       </div>
       <div class="p-6">
@@ -460,6 +459,7 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <script>
   lucide.createIcons();
 
@@ -490,8 +490,8 @@
       'brand_assets/site-photos/IMG_4187.JPG',
       'brand_assets/site-photos/IMG_4188.JPG',
       'brand_assets/site-photos/1P2A1655.jpg',
-      'brand_assets/site-photos/1P2A8839_result.png',
-      'brand_assets/site-photos/1P2A8853_result.png',
+      'brand_assets/site-photos/1P2A8839_result.jpg',
+      'brand_assets/site-photos/1P2A8853_result.jpg',
       'brand_assets/site-photos/GOPR6421.JPG',
       'brand_assets/site-photos/GOPR6425.JPG',
       'brand_assets/site-photos/GOPR6426.JPG',
@@ -501,7 +501,7 @@
     images.forEach((src, i) => {
       const slide = document.createElement('div');
       slide.className = 'about-hero-slide' + (i === 0 ? ' is-active' : '');
-      slide.innerHTML = `<img src="${src}" alt="Evomec Global Services Limited in the field">`;
+      slide.innerHTML = `<img src="${src}" alt="Evomec Global Services Limited in the field" ${i > 0 ? 'loading="lazy"' : ''}>`;
       track.appendChild(slide);
     });
     const slides = track.querySelectorAll('.about-hero-slide');
